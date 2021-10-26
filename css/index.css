@@ -1,0 +1,53 @@
+/* NORMALIZADOR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere; }
+
+@media only screen and (max-width: 991px) {
+  margin: 0 !important; }
+
+/* estilo general del cuerpo */
+html {
+  font-size: 62,5%;
+  word-spacing: 0.3em;
+  letter-spacing: 0.03em;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: rgba(250, 249, 249, 0.965);
+  margin: 0 0.5rem;
+  padding: 0 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  column-gap: 1rem;
+  justify-content: stretch; }
+
+header {
+  grid-area: header;
+  vertical-align: middle; }
+  header div {
+    height: 10rem;
+    background-color: blue;
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center; }
+  header h1 {
+    color: whitesmoke;
+    float: right;
+    margin-top: 2rem; }
+
+main .title2 {
+  color: blue;
+  text-align: center; }
+
+main .article {
+  text-align: justify;
+  align-items: center; }

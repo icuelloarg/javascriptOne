@@ -1,0 +1,29 @@
+header{
+    grid-area: header;
+    vertical-align: middle;
+    div {
+        height: 10rem;
+        background-color: blue;
+        color: whitesmoke;
+        font-weight: bold;
+        text-align: center;
+    }
+    h1{
+        color: whitesmoke;
+        float: right;
+            margin-top: 2rem;
+       
+    }
+}
+
+main{
+    .title2{
+        color: blue;
+        text-align: center;
+    }
+    .article{
+        text-align: justify;
+        align-items: center;
+        
+    }
+}
