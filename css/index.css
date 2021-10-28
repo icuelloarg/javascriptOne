@@ -41,7 +41,7 @@ header {
     text-align: center; }
   header h1 {
     color: whitesmoke;
-    float: right;
+    text-align: center;
     margin-top: 2rem; }
 
 main .title2 {
