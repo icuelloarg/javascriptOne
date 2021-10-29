@@ -1,10 +1,14 @@
 
 // TERCERA ENTREGA 
 
-const minimo = 25000
-let ingresos = Number(parseInt(prompt("Cuál es su ingreso mensual en pesos?")));
+let ocupacion = (prompt("Tienes ingresos regulares? SI o NO"))
+if (ocupacion != "SI") {alert("Al no tener ingresos no podemos ofrecerte un CREDITO")};
 
-while ((ingresos >= minimo) && (ingresos != "ESC"))  {
+while ((ocupacion == "SI") && (ocupacion != "ESC"))  {
+
+    const minimo = 25000
+    let ingresos = Number(parseInt(prompt("Cuál es su ingreso mensual en pesos?")));
+    if (ingresos < 25000){break;}
     let gastos = Number( parseInt(prompt("Cuánto gasta por mes?")));
     let dinero = Number(ingresos - gastos);
     let aprobado50 = (dinero * 12);
@@ -16,8 +20,10 @@ while ((ingresos >= minimo) && (ingresos != "ESC"))  {
     else if ((dinero) >= 20000){alert("Podrías solicitar un crédito de " + aprobado20);}
     else {alert("No podemos ofrecerte ningún crédito")}
     
+    
 }
 alert("Tus ingresos son insuficientes")
+
 
 
 // SEGUNDA ENTREGA
