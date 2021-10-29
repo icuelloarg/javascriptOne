@@ -2,7 +2,8 @@
 // TERCERA ENTREGA 
 
 let ocupacion = (prompt("Tienes ingresos regulares? SI o NO"))
-if (ocupacion != "SI") {alert("Al no tener ingresos no podemos ofrecerte un CREDITO")};
+if ((ocupacion != "SI") && (ocupacion != "NO")) {alert("Ingresa una respuesta valida")}
+else if (ocupacion == "NO") {alert("Al no tener ingresos no podemos ofrecerte un CREDITO")};
 
 while ((ocupacion == "SI") && (ocupacion != "ESC"))  {
 
