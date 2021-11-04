@@ -1,6 +1,93 @@
 
-// TERCERA ENTREGA 
+// CUARTA ENTREGA + DESAFIO COMPLEMENTARIO
 
+function margen () {
+    let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
+    let gastos = Number(parseInt(prompt(`Cuanto es tu gasto mensual en pesos?`)));
+    let propiedades = Number(parseInt(prompt(`Si tienes propiedades, cual es su valor aproximado? Si no tienes, digita 0.`)));
+    
+    if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
+    else if ((ingresos - gastos)>=50000) {return ((ingresos-gastos)*0.8)}
+    else if ((ingresos - gastos)>=30000) {return ((ingresos-gastos)*0.6)}
+    else if ((ingresos - gastos)>=15000) {return ((ingresos-gastos)*0.5)}
+    else {return 0};
+}
+
+function categoria () {
+    return margen()*cuotas;
+}
+
+
+function montoTotal(){
+    let interes = 0.021;
+
+    return (monto+(monto * interes * cuotas));
+}
+
+
+function calculoCredito () {
+    
+    return (montoTotal() / cuotas);
+}
+
+function calorCuota (mensaje, cuotaPagar){
+    alert(`${mensaje} ${cuotaPagar}, en ${cuotas}. Gracias por elegirnos`);
+}
+
+function respuestaCredito (){
+    let cuotaPagar = 0;
+    let mensaje = `Su cuota a pagar sera de `;
+
+        switch (mensaje){
+            case 1:
+                while ((cuotas<37) && (montoTotal() < categoria())){               
+                    cuotaPagar = calculoCredito();
+                }alert(`No eres apto para este credito`);
+                break;
+            case 2:
+                while ((cuotas<37) && (montoTotal() < categoria())){
+                    cuotaPagar = calculoCredito();
+                }alert(`No eres apto para este credito`);
+                break;
+            case 3:
+                while ((cuotas<241) && (montoTotal() < categoria())){
+                    cuotaPagar = calculoCredito();
+                }alert(`No eres apto para este credito`);
+                break;
+            case 4:
+                while ((cuotas<61) && (montoTotal() < categoria())){
+                    cuotaPagar = calculoCredito();
+                }alert(`No eres apto para este credito`);
+                break;
+            default:
+                mensaje = `Dato incorrecto`;
+                break;
+            
+        }
+        valorCuota(mensaje, cuotaPagar);
+}
+
+
+const tipoCredito = () => {
+    const objeto = Number(parseInt(prompt(`Bienvenido a CrediCoder, indique con el Nro el tipo de credito:
+    1- Personal
+    2- Refacciones
+    3- Hipotecario
+    4- Prendario`)));
+    const monto = Number(parseInt(prompt(`Que monto solicita?`)));
+    const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
+
+    respuestaCredito();
+}
+
+tipoCredito();
+
+
+
+
+
+// TERCERA ENTREGA 
+/*
 let ocupacion = (prompt("Tienes ingresos regulares? SI o NO"))
 if ((ocupacion != "SI") && (ocupacion != "NO")) {alert("Ingresa una respuesta valida")}
 else if (ocupacion == "NO") {alert("Al no tener ingresos no podemos ofrecerte un CREDITO")};
@@ -25,6 +112,7 @@ while ((ocupacion == "SI") && (ocupacion != "ESC"))  {
 }
 alert("Tus ingresos son insuficientes")
 
+*/
 
 
 // SEGUNDA ENTREGA
