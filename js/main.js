@@ -64,7 +64,9 @@ function respuestaCredito (){
                 break;
             
         }
-        valorCuota(mensaje, parseInt(cuotaPagar));
+        if (cuotaPagar != false){
+            valorCuota(mensaje, parseInt(cuotaPagar))}
+        else {alert(`Te esperamos la proxima`)};
 }
 
 
