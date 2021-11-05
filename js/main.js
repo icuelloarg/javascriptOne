@@ -70,16 +70,16 @@ function respuestaCredito (){
 
 
     const objeto = Number(parseInt(prompt(`Bienvenido a CrediCoder, indique con el Nro el tipo de credito:
-    1- Personal
-    2- Refacciones
-    3- Hipotecario
-    4- Prendario`)));
+    1- Personal hasta 36 cuotas
+    2- Refacciones hasta 36 cuotas
+    3- Hipotecario hasta 240 cuotas
+    4- Prendario hasta 60 cuotas`)));
     const monto = Number(parseInt(prompt(`Que monto solicita?`)));
     const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
 
     respuestaCredito();
 
-    
+
 
 
 
