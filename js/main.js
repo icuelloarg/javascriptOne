@@ -4,7 +4,7 @@
 function margen () {
     let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
     let gastos = Number(parseInt(prompt(`Cuanto es tu gasto mensual en pesos?`)));
-    let propiedades = Number(parseInt(prompt(`Si tienes propiedades, cual es su valor aproximado? Si no tienes, digita 0.`)));
+    
     
     if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
     else if ((ingresos - gastos)>=50000) {return ((ingresos-gastos)*0.8)}
@@ -14,7 +14,7 @@ function margen () {
 }
 
 function categoria () {
-    return margen()*cuotas;
+    return (margen() * cuotas);
 }
 
 
@@ -30,45 +30,45 @@ function calculoCredito () {
     return (montoTotal() / cuotas);
 }
 
-function calorCuota (mensaje, cuotaPagar){
-    alert(`${mensaje} ${cuotaPagar}, en ${cuotas}. Gracias por elegirnos`);
+function valorCuota (mensaje, cuotaPagar){
+    alert(`${mensaje} ${cuotaPagar} pesos, en ${cuotas} cuotas. Gracias por elegirnos`);
 }
 
 function respuestaCredito (){
     let cuotaPagar = 0;
     let mensaje = `Su cuota a pagar sera de `;
 
-        switch (mensaje){
+        switch (objeto){
             case 1:
-                while ((cuotas<37) && (montoTotal() < categoria())){               
-                    cuotaPagar = calculoCredito();
-                }alert(`No eres apto para este credito`);
+                if ((cuotas<37) && (montoTotal() < categoria())){               
+                    cuotaPagar = calculoCredito()}
+                else {alert(`No eres apto para este credito`)};
                 break;
             case 2:
-                while ((cuotas<37) && (montoTotal() < categoria())){
-                    cuotaPagar = calculoCredito();
-                }alert(`No eres apto para este credito`);
+                if ((cuotas<37) && (montoTotal() < categoria())){
+                    cuotaPagar = calculoCredito()}
+                else {alert(`No eres apto para este credito`)};
                 break;
             case 3:
-                while ((cuotas<241) && (montoTotal() < categoria())){
-                    cuotaPagar = calculoCredito();
-                }alert(`No eres apto para este credito`);
+                if ((cuotas<241) && (montoTotal() < categoria())){
+                    cuotaPagar = calculoCredito()}
+                else {alert(`No eres apto para este credito`)};
                 break;
             case 4:
-                while ((cuotas<61) && (montoTotal() < categoria())){
-                    cuotaPagar = calculoCredito();
-                }alert(`No eres apto para este credito`);
+                if ((cuotas<61) && (montoTotal() < categoria())){
+                    cuotaPagar = calculoCredito()}
+                else {alert(`No eres apto para este credito`)};
                 break;
             default:
                 mensaje = `Dato incorrecto`;
                 break;
             
         }
-        valorCuota(mensaje, cuotaPagar);
+        valorCuota(mensaje, parseInt(cuotaPagar));
 }
 
 
-const tipoCredito = () => {
+
     const objeto = Number(parseInt(prompt(`Bienvenido a CrediCoder, indique con el Nro el tipo de credito:
     1- Personal
     2- Refacciones
@@ -78,11 +78,8 @@ const tipoCredito = () => {
     const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
 
     respuestaCredito();
-}
 
-tipoCredito();
-
-
+    
 
 
 
