@@ -1,5 +1,6 @@
 
-// CUARTA ENTREGA + DESAFIO COMPLEMENTARIO
+// QUINTA ENTREGA, OBJETOS
+// Resuelvo el desafio en la funcion "valorCuota", generando como objeto al usuario que solicita el credito.
 
 function margen () {
     let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
@@ -31,12 +32,45 @@ function calculoCredito () {
 }
 
 function valorCuota (mensaje, cuotaPagar){
-    alert(`${mensaje} ${cuotaPagar} pesos, en ${cuotas} cuotas. Gracias por elegirnos`);
+
+    alert(`${mensaje} ${cuotaPagar} pesos, en ${cuotas} cuotas. A continuación podrás solicitarlo.`);
+
+    //QUINTA ENTREGA
+
+    class Solicitante {
+        constructor (nombre, apellido, dni, correo, telefono){
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.dni = dni;
+            this.correo = correo;
+            this.telefono = telefono;
+        }
+        accesoSolicitante() {
+            if (this.nombre != false && this.apellido != false){
+                alert( `Hola ${this.nombre} ${this.apellido}, gracias por solicitar tu credito de ${monto}. Evaluaremos tu solicitud y en 24 horas te contactaremos`);
+            }
+            else {
+                alert(`Alguno de los datos son incorrectos`);
+            }
+        }
+    
+    }
+    
+    
+    let nombre = prompt(`Cual es tu nombre?`);
+    let apellido = prompt(`Cual es tu apellido?`);
+    let dni = Number(prompt(`Numero de DNI`));
+    let correo = prompt(`Correo electronico`);
+    let telefono = Number(parseInt(prompt(`Telefono`)));
+    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
+    solicitante1.accesoSolicitante()
+    console.log(solicitante1)
+        
 }
 
 function respuestaCredito (){
     let cuotaPagar = 0;
-    let mensaje = `Su cuota a pagar sera de `;
+    let mensaje = `Su cuota a pagar sería de `;
 
         switch (objeto){
             case 1:
@@ -65,7 +99,9 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
-            valorCuota(mensaje, parseInt(cuotaPagar))}
+            valorCuota(mensaje, parseInt(cuotaPagar));
+        
+        }
         else {alert(`Te esperamos la proxima`)};
 }
 
@@ -80,7 +116,6 @@ function respuestaCredito (){
     const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
 
     respuestaCredito();
-
 
 
 
