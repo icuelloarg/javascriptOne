@@ -1,6 +1,7 @@
 
-// QUINTA ENTREGA, OBJETOS
-// Resuelvo el desafio en la funcion "valorCuota", generando como objeto al usuario que solicita el credito.
+//SEXTA ENTREGA.
+/*Se resuelve con arrays y objetos los intereses y cantidad de cuotas maximas que admite cada tipo de credito, y se utilizan esos parametros para
+resolver el interes y cuota maxima de cada pedido del cliente . Al final del archivo, se ordena el array con sort() */
 
 function margen () {
     let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
@@ -18,11 +19,37 @@ function categoria () {
     return (margen() * cuotas);
 }
 
+// SEXTA ENTREGA, ARRAYS
+
+class Creditos {
+    constructor(numero, tipo, interesmensual, maxcuota) {
+        this.numero = numero;
+        this.tipo = tipo;
+        this.interesmensual = interesmensual;
+        this.maxcuota = maxcuota;
+    }
+}
+
+const credito = [];
+
+credito.push(new Creditos(1,`personal`, 0.021, 37));
+credito.push(new Creditos(2,`refacciones`, 0.02, 37));
+credito.push(new Creditos(3,`hipotecario`, 0.017, 241));
+credito.push(new Creditos(4,`prendario`, 0.0192, 61));
+
+
+//Se utiliza el maximo de cuota de cada tipo de credito del array
+
+function cuotasMaxima(){
+    const cuotamax = credito.find(credito => credito.numero === objeto)
+    return (cuotamax.maxcuota);
+}
+
+// Se utiliza el interes de cada tipo de credito del array
 
 function montoTotal(){
-    let interes = 0.021;
-
-    return (monto+(monto * interes * cuotas));
+    const interes = credito.find(credito => credito.numero === objeto)
+    return (monto+(monto * interes.interesmensual * cuotas));
 }
 
 
@@ -31,37 +58,35 @@ function calculoCredito () {
     return (montoTotal() / cuotas);
 }
 
+
+class Solicitante {
+    constructor (nombre, apellido, dni, correo, telefono){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.correo = correo;
+        this.telefono = telefono;
+    }
+    accesoSolicitante() {
+        if (this.nombre != false && this.apellido != false){
+            alert( `Hola ${this.nombre} ${this.apellido}, gracias por solicitar tu credito de ${monto}. Evaluaremos tu solicitud y en 24 horas te contactaremos`);
+        }
+        else {
+            alert(`Alguno de los datos son incorrectos`);
+        }
+    }
+
+}
+
 function valorCuota (mensaje, cuotaPagar){
 
-    alert(`${mensaje} ${cuotaPagar} pesos, en ${cuotas} cuotas. A continuación podrás solicitarlo.`);
-
-    //QUINTA ENTREGA
-
-    class Solicitante {
-        constructor (nombre, apellido, dni, correo, telefono){
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dni = dni;
-            this.correo = correo;
-            this.telefono = telefono;
-        }
-        accesoSolicitante() {
-            if (this.nombre != false && this.apellido != false){
-                alert( `Hola ${this.nombre} ${this.apellido}, gracias por solicitar tu credito de ${monto}. Evaluaremos tu solicitud y en 24 horas te contactaremos`);
-            }
-            else {
-                alert(`Alguno de los datos son incorrectos`);
-            }
-        }
-    
-    }
-    
+    alert(`${mensaje} ${cuotaPagar} pesos, en ${cuotas} cuotas. A continuación podrás solicitarlo.`);  
     
     let nombre = prompt(`Cual es tu nombre?`);
     let apellido = prompt(`Cual es tu apellido?`);
-    let dni = Number(prompt(`Numero de DNI`));
+    let dni = prompt(`Numero de DNI`);
     let correo = prompt(`Correo electronico`);
-    let telefono = Number(parseInt(prompt(`Telefono`)));
+    let telefono = prompt(`Telefono`);
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
@@ -74,22 +99,22 @@ function respuestaCredito (){
 
         switch (objeto){
             case 1:
-                if ((cuotas<37) && (montoTotal() < categoria())){               
+                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){               
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
             case 2:
-                if ((cuotas<37) && (montoTotal() < categoria())){
+                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
             case 3:
-                if ((cuotas<241) && (montoTotal() < categoria())){
+                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
             case 4:
-                if ((cuotas<61) && (montoTotal() < categoria())){
+                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
@@ -118,6 +143,19 @@ function respuestaCredito (){
     respuestaCredito();
 
 
+    //Orden del array
+
+    //Array inicial
+
+    console.log(credito);
+    
+    //Array en orden reverso
+
+    credito.sort(function (a, b){
+        return (b.numero - a.numero)
+    });
+    console.log(credito);
+    
 
 
 // TERCERA ENTREGA 
