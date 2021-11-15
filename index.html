@@ -16,53 +16,98 @@
             <a href=""><img src="public/conceptos.png" alt="" class="logo__picture__img"></a>
         </picture>
     </div>
+    <!-- Inicio de footer -->
+    <footer class="footer" id="footerIndex">
+        <div class="socialMedia">
+            <div class="whatsapp divSoc">
+                <span class="iconify" data-icon="fontisto:whatsapp" style="color: white;"></span>
+            </div>
+            <div class="mail divSoc">
+                <span class="iconify" data-icon="feather:mail" style="color: white;"></span>
+            </div>
+            <div class="face divSoc">
+                <span class="iconify" data-icon="icon-park-outline:facebook-one" style="color: white;"></span>
+            </div>
+            <div class="instagran divSoc">
+                <span class="iconify" data-icon="bi:instagram" style="color: white;"></span>
+            </div>
+        </div>
+    </footer>
+    <!-- Fin footer -->  
 </header>
     <!-- Fin de header -->
     <!-- Inicio main -->
 <main>
-    <div class="title2">Consigna</div>
     <div>
-        <article class="article">
-                <p>
-                    Entrega de Arrays, y orden de array para el desafio complementario.
-                </p>
-                <p>
-                    Entrega de la primera parte del proyecto final, incluyendo variables, funciones y objetos.
-                </p>
-        </article>
+        <h1>¿Buscás un crédito?</h1>
+        <p>
+            En  CONCEPTOS trabajamos todos los días para ofrecer la tasa de interés más baja, y las mejores
+            condiciones del mercado, para que nuestras facilidades financieras lleguen a todos los argentinos.
+            Aprovechá y simulá tu crédito sin compromiso. Si te convence nuestra propuesta, podrás solicitar el
+            crédito en el paso siguiente. Recordá que las solicitudes están sujetas a aprobación crediticia.
+        </p>
+    </div>
+    <div>
+        <h1>Créditos personales</h1>
+        <p>
+            Para que hagas el viaje que tanto esperás, hagas ese regalo a esa persona especial, arregles el auto, o 
+            simplemente te des un gusto. Podés pagarlo en hasta 36 meses y a una tasa final anual de 25,2%. 
+        </p>
+    </div>
+    <div>
+        <h1>Créditos para refacciones</h1>
+        <p>
+            Ese arreglo en casa ya no tiene que seguir esperando. Con esta opción podrás dejar tu hogar tal
+            como lo querés para vos y tu familia. Podés pagarlo en hasta 36 meses y a una tasa final anual de 24%. 
+        </p>
+    </div>
+    <div>
+        <h1>Créditos hipotecarios</h1>
+        <p>
+            Nada más placentero que tener tu propio hogar. Con CONCEPTOS Hipoteca, tenés la oportunidad de 
+            comprar esa casa o departamento de tus sueños. Dejá de pagar alquiler y mudate a tu propia casa. 
+            Podés pagarlo en hasta 20 años y a una tasa final anual de 20,4%. 
+        </p>
+    </div>
+    <div>
+        <h1>Créditos prendarios</h1>
+        <p>
+            Todos tuvimos ese amor de 4 ruedas. Dejá de posponerlo y conseguilo con CONCEPTOS Prendario. La
+            mejor opción para alcanzar tu vehículo preferido. Podés pagarlo en hasta 60 meses y a una tasa final anual de 23,04%. 
+        </p>
     </div>
 </main>
 <aside class="sidebar">
     <form class="formulario" action="/prueba" method="POST">
         <!-- Inicio formulario de Solicitud de credito -->
         <div>
-            <h3 class="tituloForm">Calificá a un crédito con nosotros</h3>
-            <h4 class="segundoForm">Tenemos las mejores tasas del mercado.</h4>
+            <h1 class="tituloForm">Simulá tu crédito</h1>
+            <p class="subText"><small>Sujeto a aprobación crediticia.</small></p> 
         </div>
     
-        <div>
-            <label for="Nombre">Nombre</label>
-            <input class="elemento" type="text" name="Nombre">       
-        </div>     
-        <div>
-            <label for="Apellido">Apellido</label>
-            <input class="elemento" type="text" name="Apellido">    
+        <div class="combinedLine">
+            <!-- <label for="Nombre">Nombre</label> -->
+            <input class="elemento" type="text" name="Nombre" placeholder="Nombre">       
+        <!--</div>     
+        <div>-->
+            <!-- <label for="Apellido">Apellido</label> -->
+            <input class="elemento" type="text" name="Apellido" placeholder="Apellido">    
+        </div>
+        <div class="combinedLine">
+
+            <input class="elemento" type="text" name="DNI" placeholder="DNI">    
+        <!-- </div>
+        <div> -->
+
+            <input class="elemento" type="text" name="Teléfono" placeholder="Telefono">    
         </div>
         <div>
-            <label for="DNI">Nro de DNI</label>
-            <input class="elemento" type="text" name="DNI">    
+
+            <input class="elemento" type="email" name="E-Mail" placeholder="E-mail">
         </div>
         <div>
-            <label for="Teléfono">Teléfono</label>
-            <input class="elemento" type="text" name="Teléfono">    
-        </div>
-        <div>
-        <label for="E-Mail">E-Mail</label>
-            <input class="elemento" type="email" name="E-Mail">
-        </div>
-        <div>
-            <label for="Crédito">Tipo de crédito</label>
              <select class="elemento" name="Crédito" id="">
+              <option value="Default">Tipo de crédito</option>
               <option value="Personal">Personal</option>
               <option value="Refacciones">Refacciones</option>
               <option value="Cba">Hipotecario</option>
@@ -70,8 +115,8 @@
              </select>
         </div>
         <div>
-            <label for="Cuotas">Cantidad de cuotas</label>
-             <select class="elemento" name="Crédito" id="">
+             <select class="elemento" name="Cuotas" id="">
+              <option value="Default">Cantidad de cuotas</option>
               <option value="6">6</option>
               <option value="12">12</option>
               <option value="18">18</option>
@@ -83,14 +128,24 @@
               <option value="240">240</option>
              </select>
         </div>
-        <div>
-             <label for="Condicion trib">Condición tributaria</label>
-             <input type="radio" name="Ocupacion" id="OptionYes"> 
-             <label for="OptionYes">Empleado</label>
-             <input type="radio" name="Ocupacion" id="OptionNo">
-             <label for="OptionNo">Autónomo</label>
-        
+
+        <div class="combinedLine">
+            <!-- <label for="Nombre">Nombre</label> -->
+            <input class="elemento" type="number" name="Nombre" placeholder="Ingresos mensuales">       
+        <!--</div>     
+        <div>-->
+            <!-- <label for="Apellido">Apellido</label> -->
+            <input class="elemento" type="number" name="Apellido" placeholder="Gastos mensuales">    
         </div>
+        <div>
+            <select class="elemento" name="Ocupacion" id="">
+             <option value="Default">Ocupación</option>
+             <option value="emplDep">Empleado en relación de dependencia</option>
+             <option value="mono">Monotributista</option>
+             <option value="RI">Responsable Inscripto</option>
+             <option value="Otro">Otro</option>           
+            </select>
+       </div>
         <div class="submit">
             <input class="submitButton" type="submit" value="Evaluar">
             <input type="reset" value="Borrar">
@@ -98,15 +153,9 @@
         <!-- Fin de formulario de Solicitud de crédito -->
    </form>
 </aside>
-<!-- Inicio de footer -->
-<footer class="footer" id="footerIndex">
-    <div class="backgroundFooter">
-    </div>
-</footer>
-
-<!-- Fin footer -->
 
 
+<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
