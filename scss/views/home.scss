@@ -5,23 +5,23 @@ header{
     background-color: $primary;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 40vh auto auto;
     row-gap: 1rem;
+    height: 100vh;
     .logo__picture__img {
         width: 100%;
     }
-    div {
-        font-weight: bold;
-        text-align: center;
-        margin-top: 1rem;
-    }
-    h1{
-        color: whitesmoke;
-        text-align: center;     
-    }
-    footer{
+    .conditions{
+        color: $back-letter;
+        text-align: justify;
+        line-height: 1.5rem;
+        padding: 3rem;
         grid-row-start: 2;
         grid-row-end: 3;
+    }
+    footer{
+        grid-row-start: 3;
+        grid-row-end: 4;
         align-items: baseline;
         justify-content: center;
         position: relative;
@@ -35,16 +35,29 @@ header{
                 transform: scale(4);
             }
         }
+        & .copyright {
+            color: $back-letter;
+            position: absolute;
+            bottom: 3rem;
+            margin-left: 12rem;
+        }
     }
 }
 
 main{
     font-size: 1.7em;
     grid-area: main;
-    padding: 8rem 1rem 3rem 1rem;
+    padding: 5rem 1rem 3rem 1rem;
     line-height: 1.4;
+    height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+      }
     div {
-        margin-top: 2.2rem;
+        margin-top: 2rem;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         & h1{
@@ -64,6 +77,7 @@ aside{
     padding-right: 1rem;
     grid-area: form;
     font-size: 3rem;
+    height: 100vh;
     & div h1, p{
         color: $primary;
         text-align: center;

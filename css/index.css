@@ -39,20 +39,21 @@ header {
   background-color: #004AAD;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  row-gap: 1rem; }
+  grid-template-rows: 40vh auto auto;
+  row-gap: 1rem;
+  height: 100vh; }
   header .logo__picture__img {
     width: 100%; }
-  header div {
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1rem; }
-  header h1 {
+  header .conditions {
     color: whitesmoke;
-    text-align: center; }
-  header footer {
+    text-align: justify;
+    line-height: 1.5rem;
+    padding: 3rem;
     grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-end: 3; }
+  header footer {
+    grid-row-start: 3;
+    grid-row-end: 4;
     align-items: baseline;
     justify-content: center;
     position: relative; }
@@ -64,14 +65,25 @@ header {
       width: 100%; }
       header footer .socialMedia .iconify {
         transform: scale(4); }
+    header footer .copyright {
+      color: whitesmoke;
+      position: absolute;
+      bottom: 3rem;
+      margin-left: 12rem; }
 
 main {
   font-size: 1.7em;
   grid-area: main;
-  padding: 8rem 1rem 3rem 1rem;
-  line-height: 1.4; }
+  padding: 5rem 1rem 3rem 1rem;
+  line-height: 1.4;
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none; }
+  main::-webkit-scrollbar {
+    display: none; }
   main div {
-    margin-top: 2.2rem;
+    margin-top: 2rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
     main div h1 {
@@ -85,7 +97,8 @@ aside {
   padding-left: 1rem;
   padding-right: 1rem;
   grid-area: form;
-  font-size: 3rem; }
+  font-size: 3rem;
+  height: 100vh; }
   aside div h1, aside p {
     color: #004AAD;
     text-align: center;
