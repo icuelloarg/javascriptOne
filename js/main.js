@@ -69,7 +69,7 @@ class Solicitante {
     }
     accesoSolicitante() {
         if (this.nombre != false && this.apellido != false){
-            alert( `Hola ${this.nombre} ${this.apellido}, gracias por solicitar tu credito de ${monto}. Evaluaremos tu solicitud y en 24 horas te contactaremos`);
+         
         }
         else {
             alert(`Alguno de los datos son incorrectos`);
@@ -80,8 +80,6 @@ class Solicitante {
 
 function valorCuota (mensaje, cuotaPagar){
 
-    alert(`${mensaje} ${cuotaPagar} pesos, en ${cuotas} cuotas. A continuación podrás solicitarlo.`);  
-    
     let nombre = prompt(`Cual es tu nombre?`);
     let apellido = prompt(`Cual es tu apellido?`);
     let dni = prompt(`Numero de DNI`);
@@ -90,6 +88,15 @@ function valorCuota (mensaje, cuotaPagar){
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
+
+    let responderk = document.querySelector(".sidebar");
+    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+    responderk.innerHTML += `    <div class="divRespuesta">
+                                    <p>
+                                        ${datosP}
+                                     </p>
+                                </div>`;
+   
         
 }
 
@@ -124,6 +131,10 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
+           let responderC = document.querySelector(".elemento1");
+            let cuotaMostrar = (parseInt(cuotaPagar));
+            responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
+            document.querySelector(".submitButton").value = `Solicitar`;
             valorCuota(mensaje, parseInt(cuotaPagar));
         
         }
@@ -140,8 +151,8 @@ function respuestaCredito (){
     const monto = Number(parseInt(prompt(`Que monto solicita?`)));
     const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
 
-    respuestaCredito();
-
+    respuestaCredito();   
+    
 
     //Orden del array
 
