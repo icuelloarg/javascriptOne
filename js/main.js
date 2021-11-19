@@ -1,8 +1,7 @@
 
-//SEXTA ENTREGA.
-/*Se resuelve con arrays y objetos los intereses y cantidad de cuotas maximas que admite cada tipo de credito, y se utilizan esos parametros para
-resolver el interes y cuota maxima de cada pedido del cliente . Al final del archivo, se ordena el array con sort() */
-
+//SEPTIMA ENTREGA
+/* Se resuelven las salidas del calculador por medio de DOM, creando un espacio input disabled
+para el valor de la cuota y el mensaje de salida aparece a continuacion del ASIDE */
 function margen () {
     let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
     let gastos = Number(parseInt(prompt(`Cuanto es tu gasto mensual en pesos?`)));
@@ -19,7 +18,6 @@ function categoria () {
     return (margen() * cuotas);
 }
 
-// SEXTA ENTREGA, ARRAYS
 
 class Creditos {
     constructor(numero, tipo, interesmensual, maxcuota) {
@@ -38,14 +36,12 @@ credito.push(new Creditos(3,`hipotecario`, 0.017, 241));
 credito.push(new Creditos(4,`prendario`, 0.0192, 61));
 
 
-//Se utiliza el maximo de cuota de cada tipo de credito del array
 
 function cuotasMaxima(){
     const cuotamax = credito.find(credito => credito.numero === objeto)
     return (cuotamax.maxcuota);
 }
 
-// Se utiliza el interes de cada tipo de credito del array
 
 function montoTotal(){
     const interes = credito.find(credito => credito.numero === objeto)
@@ -89,6 +85,8 @@ function valorCuota (mensaje, cuotaPagar){
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
 
+    //SEPTIMA ENTREGA  -  MENSAJE DE SALIDA
+
     let responderk = document.querySelector(".sidebar");
     let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
     responderk.innerHTML += `    <div class="divRespuesta">
@@ -131,6 +129,7 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
+            //SEPTIMA ENTREGA - VALOR DE LA CUOTA DEL CREDITO SOLICITADO
            let responderC = document.querySelector(".elemento1");
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
@@ -154,14 +153,7 @@ function respuestaCredito (){
     respuestaCredito();   
     
 
-    //Orden del array
-
-    //Array inicial
-
-    console.log(credito);
-    
-    //Array en orden reverso
-
+ 
     credito.sort(function (a, b){
         return (b.numero - a.numero)
     });
