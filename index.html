@@ -50,6 +50,9 @@
     <!-- Fin de header -->
     <!-- Inicio main -->
 <main>
+    <div class="divButton" id="divButton">
+        <button class="simulador" id="simButton"><a href="#simular">Simulá tu crédito</a></button>
+    </div>
     <div>
         <h1>¿Buscás un crédito?</h1>
         <p>
@@ -92,13 +95,13 @@
 <aside class="sidebar">
     <form class="formulario" action="/prueba" method="POST">
         <!-- Inicio formulario de Solicitud de credito -->
-        <div>
+        <div id="simular">
             <h1 class="tituloForm">Simulá tu crédito</h1>
             <p class="subText"><small>Sujeto a aprobación crediticia.</small></p> 
         </div>
     
         <div class="combinedLine">
-            <input class="elemento" type="text" name="Nombre" placeholder="Nombre">       
+            <input class="elemento" type="text" name="Nombre" placeholder="Nombre" id="formName">       
             <input class="elemento" type="text" name="Apellido" placeholder="Apellido">    
         </div>
         <div class="combinedLine">
@@ -152,9 +155,39 @@
             <input class="submitButton" type="submit" value="Evaluar">
             <input type="reset" value="Borrar">
         </div>
-        <!-- Fin de formulario de Solicitud de crédito -->
    </form>
 </aside>
+<footer class="responsiveFooter">
+    <div class="conditionsFoot">
+        <p>
+            La otorgación de los créditos se encuentra sujeta a aprobación crediticia. Se evaluará la 
+            capacidad de pago del solicitante, sus gastos declarados y la finalidad del crédito. Para créditos
+            Hipotecarios y Prendarios, el bien comprado quedará como garantía de cumplimiento de la obligación 
+            ya sea mediante hipoteca o prenda según corresponda. Las obligaciones podrán cancelarse anticipadamente, 
+            generando la correspondiente adecuación de los intereses.
+            
+        </p>
+    </div>
+    <div class="socialMedia">
+        <div class="whatsapp divSoc">
+            <span class="iconify" data-icon="fontisto:whatsapp" style="color: white;"></span>
+        </div>
+        <div class="mail divSoc">
+            <span class="iconify" data-icon="feather:mail" style="color: white;"></span>
+        </div>
+        <div class="face divSoc">
+            <span class="iconify" data-icon="icon-park-outline:facebook-one" style="color: white;"></span>
+        </div>
+        <div class="instagran divSoc">
+            <span class="iconify" data-icon="bi:instagram" style="color: white;"></span>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright Conceptos 2021</p>
+    </div>
+
+
+</footer>
 
 
 <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>

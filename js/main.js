@@ -1,4 +1,12 @@
 
+// recordatorio
+/*Corregir estilos de caja de respuesta de credito */
+
+
+
+
+
+
 //SEPTIMA ENTREGA
 /* Se resuelven las salidas del calculador por medio de DOM, creando un espacio input disabled
 para el valor de la cuota y el mensaje de salida aparece a continuacion del ASIDE */
@@ -87,16 +95,21 @@ function valorCuota (mensaje, cuotaPagar){
 
     //SEPTIMA ENTREGA  -  MENSAJE DE SALIDA
 
-    let responderk = document.querySelector(".sidebar");
+    let responderk = document.querySelector(".formulario");
     let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
     responderk.innerHTML += `    <div class="divRespuesta">
-                                    <p>
-                                        ${datosP}
-                                     </p>
+                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
+                                   
                                 </div>`;
    
         
 }
+/* 
+ <input type="text" class="elemento" id="resp1" value="" disabled>
+
+  <p>
+${datosP}
+</p>*/
 
 function respuestaCredito (){
     let cuotaPagar = 0;

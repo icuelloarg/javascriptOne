@@ -77,6 +77,23 @@ main{
             align-items: center;
         }
     } 
+    .divButton{
+        display: none;
+        justify-content: center;
+        & .simulador{
+            background-color: $primary;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 1rem;
+            border: none;
+            border-radius: 1rem;
+            & a{
+                text-decoration: none;
+                color: $back-letter;
+            }
+        }
+    }
+
 }
 
 aside{
@@ -138,5 +155,100 @@ input, select{
         color: $back-letter;
         font-size: 2rem;
         font-weight: bold;
+    }
+}
+
+.responsiveFooter{
+    display: none;
+}
+
+//RESPONSIVE
+
+@media only screen and (max-width: 900px){
+    header{
+        height: 100%;
+        grid-template-rows: 40vh auto 40vh;
+        & .conditions p {
+            position: sticky;
+            top: 2rem;
+            bottom: auto;
+        }
+    }
+    main{
+        height: 100%;
+        overflow-y: visible; 
+        & .divButton{
+            display: flex;
+            position: sticky;
+            top: 3rem;
+        }
+    }
+    aside{
+        padding-top: 4rem;
+    }
+}
+
+@media only screen and (max-width: 630px){
+    header  {
+        padding-top: 0;
+        height: 20vh;
+        min-height: auto;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        & .logo {
+            background-image: url(../public/conceptos-responsive.png); 
+        }
+        & .conditions {
+            display: none;
+        }
+        & footer {
+            display: none;
+        }
+    }
+    main {
+        padding-top: 2rem;
+    }
+    aside {
+        height: 100%;
+        min-height: auto;
+        & form div .respCred {
+            font-family: inherit;
+            color: $primary;
+            background-color: $back-letter;
+            border-radius: 1rem;
+            border: none;
+        }
+    }
+    .responsiveFooter {
+        padding: 2rem;
+        display: initial;
+        background-color: $primary;
+        color: $back-letter;
+        align-items: baseline;
+        justify-content: center;
+        & .conditionsFoot{
+            color: $back-letter;
+            text-align: justify;
+            line-height: 1.5rem;
+            padding: 2rem;
+        }
+        & .socialMedia{
+            margin-top: 3rem;
+            display: flex;
+            justify-content: space-around;
+            position: initial;
+            margin-bottom: 2rem;
+            width: 100%;
+            & .iconify {
+                transform: scale(3);
+            }
+        }
+        & .copyright {
+            color: $back-letter;
+            position: initial;
+            bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
     }
 }

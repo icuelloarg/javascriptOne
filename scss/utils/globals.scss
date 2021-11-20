@@ -26,3 +26,25 @@ body{
     background-image: -webkit-radial-gradient(-11111px top, ellipse, $thirdgradient 71%, #ffffff 41%);
     background-repeat: no-repeat;
 }
+
+
+//RESPONSIVE
+
+@media only screen and (max-width: 900px) {
+    body{
+        grid-template-areas: "header main" "header form";
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 2fr;
+        padding-bottom: 2rem;
+    }
+
+}
+
+
+@media only screen and (max-width: 630px){
+    body{
+        grid-template-areas: "header" "main" "form" "footer";
+        grid-template-rows: auto auto auto auto;
+        grid-template-columns: 1fr;
+    }
+}
