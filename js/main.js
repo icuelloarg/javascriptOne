@@ -2,17 +2,27 @@
 // recordatorio
 /*Corregir estilos de caja de respuesta de credito */
 
+let nombre = document.getElementById("formName");
+let apellido = document.getElementById("formLastN");
+let telefono = document.getElementById("phone");
 
-
-
+const objeto = Number(document.getElementById("tipoc").value);
+const monto = Number(document.getElementById("monto1").value);
+const cuotas = Number(document.getElementById("cuotas1").value);
+const clickear = "click"
+let ingresos = Number(document.getElementById("incomes").value);
+let gastos = Number(document.getElementById("outcomes").value);
 
 
 //SEPTIMA ENTREGA
 /* Se resuelven las salidas del calculador por medio de DOM, creando un espacio input disabled
 para el valor de la cuota y el mensaje de salida aparece a continuacion del ASIDE */
 function margen () {
-    let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
-    let gastos = Number(parseInt(prompt(`Cuanto es tu gasto mensual en pesos?`)));
+
+   
+ //console.log(ingresos)
+//    let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
+   // let gastos = Number(parseInt(prompt(`Cuanto es tu gasto mensual en pesos?`)));
     
     
     if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
@@ -38,11 +48,10 @@ class Creditos {
 
 const credito = [];
 
-credito.push(new Creditos(1,`personal`, 0.021, 37));
-credito.push(new Creditos(2,`refacciones`, 0.02, 37));
-credito.push(new Creditos(3,`hipotecario`, 0.017, 241));
-credito.push(new Creditos(4,`prendario`, 0.0192, 61));
-
+credito.push(new Creditos(1,`Personal`, 0.021, 37));
+credito.push(new Creditos(2,`Refacciones`, 0.02, 37));
+credito.push(new Creditos(3,`Hipotecario`, 0.017, 241));
+credito.push(new Creditos(4,`Prendario`, 0.0192, 61));
 
 
 function cuotasMaxima(){
@@ -50,12 +59,24 @@ function cuotasMaxima(){
     return (cuotamax.maxcuota);
 }
 
+/* 
+function cuotasMaxima(){
+    const cuotamax = credito.find(credito => credito.numero === objeto)
+    return (cuotamax.maxcuota);
+}
+ */
 
 function montoTotal(){
     const interes = credito.find(credito => credito.numero === objeto)
     return (monto+(monto * interes.interesmensual * cuotas));
 }
 
+
+/* function montoTotal(){
+    const interes = credito.find(credito => credito.numero === objeto)
+    return (monto+(monto * interes.interesmensual * cuotas));
+}
+ */
 
 function calculoCredito () {
     
@@ -84,11 +105,13 @@ class Solicitante {
 
 function valorCuota (mensaje, cuotaPagar){
 
+
+/* 
     let nombre = prompt(`Cual es tu nombre?`);
     let apellido = prompt(`Cual es tu apellido?`);
     let dni = prompt(`Numero de DNI`);
     let correo = prompt(`Correo electronico`);
-    let telefono = prompt(`Telefono`);
+    let telefono = prompt(`Telefono`); */
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
@@ -110,6 +133,16 @@ function valorCuota (mensaje, cuotaPagar){
   <p>
 ${datosP}
 </p>*/
+
+
+let unificado = document.getElementById("submit1");
+
+unificado.addEventListener(clickear, respuestaCredito);
+/* 
+function respuestaito (){
+    console.log("objeto");
+} */
+
 
 function respuestaCredito (){
     let cuotaPagar = 0;
@@ -153,8 +186,8 @@ function respuestaCredito (){
         else {alert(`Te esperamos la proxima`)};
 }
 
-
-
+  
+/* 
     const objeto = Number(parseInt(prompt(`Bienvenido a CrediCoder, indique con el Nro el tipo de credito:
     1- Personal hasta 36 cuotas
     2- Refacciones hasta 36 cuotas
@@ -162,17 +195,17 @@ function respuestaCredito (){
     4- Prendario hasta 60 cuotas`)));
     const monto = Number(parseInt(prompt(`Que monto solicita?`)));
     const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
-
-    respuestaCredito();   
+ */
+//respuestaCredito(); 
     
 
- 
+ /* 
     credito.sort(function (a, b){
         return (b.numero - a.numero)
     });
     console.log(credito);
     
-
+ */
 
 // TERCERA ENTREGA 
 /*

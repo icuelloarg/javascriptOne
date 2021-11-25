@@ -102,26 +102,29 @@
     
         <div class="combinedLine">
             <input class="elemento" type="text" name="Nombre" placeholder="Nombre" id="formName">       
-            <input class="elemento" type="text" name="Apellido" placeholder="Apellido">    
+            <input class="elemento" type="text" name="Apellido" placeholder="Apellido" id="formLastN">    
         </div>
         <div class="combinedLine">
-            <input class="elemento" type="text" name="DNI" placeholder="DNI">    
-            <input class="elemento" type="text" name="Teléfono" placeholder="Telefono">    
+            <input class="elemento" type="text" name="DNI" placeholder="DNI" id="dni">    
+            <input class="elemento" type="text" name="Teléfono" placeholder="Telefono" id="phone">    
         </div>
         <div>
-            <input class="elemento" type="email" name="E-Mail" placeholder="E-mail">
+            <input class="elemento" type="email" name="E-Mail" placeholder="E-mail" id="mail">
         </div>
         <div>
-             <select class="elemento" name="Crédito" id="">
+            <input class="elemento" type="number" name="montoCred" placeholder="Monto" id="monto1">
+        </div>
+        <div>
+             <select class="elemento" name="Crédito" id="tipoc">
               <option value="Default">Tipo de crédito</option>
-              <option value="Personal">Personal</option>
-              <option value="Refacciones">Refacciones</option>
-              <option value="Cba">Hipotecario</option>
-              <option value="Tuc">Prendario</option>             
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>             
              </select>
         </div>
         <div>
-             <select class="elemento" name="Cuotas" id="">
+             <select class="elemento" name="Cuotas" id="cuotas1">
               <option value="Default">Cantidad de cuotas</option>
               <option value="6">6</option>
               <option value="12">12</option>
@@ -136,8 +139,8 @@
         </div>
 
         <div class="combinedLine">
-            <input class="elemento" type="number" name="Nombre" placeholder="Ingresos mensuales">       
-            <input class="elemento" type="number" name="Apellido" placeholder="Gastos mensuales">    
+            <input class="elemento" type="number" name="ingresos" placeholder="Ingresos mensuales" id="incomes" value="123123">       
+            <input class="elemento" type="number" name="egresos" placeholder="Gastos mensuales" id="outcomes">    
         </div>
         <div>
             <select class="elemento" name="Ocupacion" id="">
@@ -152,6 +155,7 @@
            <input type="text" class="elemento" id="resp" value="" disabled>
        </div>
         <div class="submit">
+            <button class="submit1" id="submit1">Enviar</button>
             <input class="submitButton" type="submit" value="Evaluar">
             <input type="reset" value="Borrar">
         </div>
