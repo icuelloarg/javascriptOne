@@ -6,6 +6,7 @@
 let simulador = document.getElementById("submit1");
 simulador.onclick = function init(){
     simulador.innerHTML = `Solicitar`;
+    //e.preventDefault();
 
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLastN").value;
