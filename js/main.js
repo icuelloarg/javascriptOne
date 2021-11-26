@@ -1,3 +1,7 @@
+// OCTAVA ENTREGA
+//Se establece el metodo para tomar los datos desde el formulario, y se hacen parte de los array
+// y los objetos a los datos expresados. 
+
 
 let simulador = document.getElementById("submit1");
 simulador.onclick = function init(){
@@ -86,23 +90,6 @@ class Solicitante {
 
 }
 
-/* function valorCuota (mensaje, cuotaPagar){
-
-
-    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
-    solicitante1.accesoSolicitante()
-    console.log(solicitante1)
-
-
-    let responderk = document.querySelector(".formulario");
-    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
-    responderk.innerHTML += `    <div class="divRespuesta">
-                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
-                                   
-                                </div>`;
-   
-        
-} */
 
 
 function respuestaCredito (){
@@ -136,7 +123,7 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
-            //SEPTIMA ENTREGA - VALOR DE LA CUOTA DEL CREDITO SOLICITADO
+
            let responderC = document.querySelector(".elemento1");
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
