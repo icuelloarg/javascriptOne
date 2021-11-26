@@ -158,7 +158,7 @@ aside {
     font-size: 2rem;
     padding: 1rem; }
 
-input, select {
+input, button, select {
   height: 4.5rem;
   background-color: white;
   border: none;
@@ -167,7 +167,7 @@ input, select {
 .submit {
   display: flex;
   justify-content: space-around; }
-  .submit input[type="submit"], .submit input[type="reset"] {
+  .submit input[type="submit"], .submit input[type="reset"], .submit button {
     width: 45%;
     background-color: #004AAD;
     color: whitesmoke;

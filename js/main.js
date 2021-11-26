@@ -1,14 +1,18 @@
 
+let simulador = document.getElementById("submit1");
+simulador.onclick = function init(){
+    simulador.innerHTML = `Solicitar`;
 
-
-let nombre = document.getElementById("formName");
-let apellido = document.getElementById("formLastN");
-let telefono = document.getElementById("phone");
+let nombre = document.getElementById("formName").value;
+let apellido = document.getElementById("formLastN").value;
+let telefono = document.getElementById("phone").value;
+let dni = document.getElementById("dni").value;
+let correo = document.getElementById("mail").value;
 
 const objeto = Number(document.getElementById("tipoc").value);
 const monto = Number(document.getElementById("monto1").value);
 const cuotas = Number(document.getElementById("cuotas1").value);
-const clickear = "click"
+
 let ingresos = Number(document.getElementById("incomes").value);
 let gastos = Number(document.getElementById("outcomes").value);
 
@@ -82,7 +86,7 @@ class Solicitante {
 
 }
 
-function valorCuota (mensaje, cuotaPagar){
+/* function valorCuota (mensaje, cuotaPagar){
 
 
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
@@ -98,12 +102,8 @@ function valorCuota (mensaje, cuotaPagar){
                                 </div>`;
    
         
-}
+} */
 
-
-let unificado = document.getElementById("submit1");
-
-unificado.addEventListener(clickear, respuestaCredito);
 
 function respuestaCredito (){
     let cuotaPagar = 0;
@@ -140,11 +140,33 @@ function respuestaCredito (){
            let responderC = document.querySelector(".elemento1");
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
-            document.querySelector(".submitButton").value = `Solicitar`;
-            valorCuota(mensaje, parseInt(cuotaPagar));
-        
+
         }
         else {alert(`Te esperamos la proxima`)};
 }
 
- 
+respuestaCredito()
+
+let solicitud = document.getElementById("submit1");
+solicitud.onclick = function valorCuota (){
+
+
+    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
+    solicitante1.accesoSolicitante()
+    console.log(solicitante1)
+
+
+    let responderk = document.querySelector(".formulario");
+    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+    responderk.innerHTML += `    <div class="divRespuesta">
+                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
+                                   
+                                </div>`;
+   
+        
+}
+
+}
+
+
+;

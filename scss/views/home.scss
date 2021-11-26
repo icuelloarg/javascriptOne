@@ -135,11 +135,9 @@ aside{
         font-size: 2rem;
         padding: 1rem;
     }
-    .sidebar{
 
-    }
 }
-input, select{
+input, button, select{
     height: 4.5rem;
     background-color: white;
     border: none;
@@ -149,7 +147,7 @@ input, select{
 .submit{
     display: flex;
     justify-content: space-around;
-    input[type="submit"], input[type="reset"]{
+    input[type="submit"], input[type="reset"], button{
         width: 45%;
         background-color: $primary;
         color: $back-letter;
