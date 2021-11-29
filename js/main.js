@@ -149,12 +149,10 @@ solicitud.onclick = function valorCuota (){
     responderk.innerHTML += `    <div class="divRespuesta">
                                     <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
                                    
-                                </div>`;
+                                </div>`;}
    
         
+
+
 }
 
-}
-
-
-;
