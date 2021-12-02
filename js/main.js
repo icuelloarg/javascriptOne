@@ -2,12 +2,6 @@
 //Se establece el metodo para tomar los datos desde el formulario, y se hacen parte de los array
 // y los objetos a los datos expresados. 
 
-
-let simulador = document.getElementById("submit1");
-simulador.onclick = function init(){
-    simulador.innerHTML = `Solicitar`;
-    //e.preventDefault();
-
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLastN").value;
 let telefono = document.getElementById("phone").value;
@@ -20,20 +14,6 @@ const cuotas = Number(document.getElementById("cuotas1").value);
 
 let ingresos = Number(document.getElementById("incomes").value);
 let gastos = Number(document.getElementById("outcomes").value);
-
-
-function margen () {
-  
-    if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
-    else if ((ingresos - gastos)>=50000) {return ((ingresos-gastos)*0.8)}
-    else if ((ingresos - gastos)>=30000) {return ((ingresos-gastos)*0.6)}
-    else if ((ingresos - gastos)>=15000) {return ((ingresos-gastos)*0.5)}
-    else {return 0};
-}
-
-function categoria () {
-    return (margen() * cuotas);
-}
 
 
 class Creditos {
@@ -51,6 +31,30 @@ credito.push(new Creditos(1,`Personal`, 0.021, 37));
 credito.push(new Creditos(2,`Refacciones`, 0.02, 37));
 credito.push(new Creditos(3,`Hipotecario`, 0.017, 241));
 credito.push(new Creditos(4,`Prendario`, 0.0192, 61));
+
+const credJson = JSON.stringify(credito);
+console.log(credJson);
+
+
+let simulador = document.getElementById("submit1");
+simulador.onclick = function init(){
+    simulador.innerHTML = `Solicitar`;
+    //e.preventDefault();
+
+
+function margen () {
+  
+    if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
+    else if ((ingresos - gastos)>=50000) {return ((ingresos-gastos)*0.8)}
+    else if ((ingresos - gastos)>=30000) {return ((ingresos-gastos)*0.6)}
+    else if ((ingresos - gastos)>=15000) {return ((ingresos-gastos)*0.5)}
+    else {return 0};
+}
+
+function categoria () {
+    return (margen() * cuotas);
+}
+
 
 
 function cuotasMaxima(){
@@ -142,7 +146,8 @@ solicitud.onclick = function valorCuota (){
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
-
+    const typeSolic = JSON.stringify(solicitante1);
+    console.log(typeSolic);
 
     let responderk = document.querySelector(".formulario");
     let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
@@ -155,4 +160,5 @@ solicitud.onclick = function valorCuota (){
 
 
 }
+
 
