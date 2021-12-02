@@ -1,6 +1,4 @@
-// OCTAVA ENTREGA
-//Se establece el metodo para tomar los datos desde el formulario, y se hacen parte de los array
-// y los objetos a los datos expresados. 
+
 
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLastN").value;
