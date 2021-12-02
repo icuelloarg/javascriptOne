@@ -116,25 +116,21 @@
         </div>
         <div>
              <select class="elemento" name="Crédito" id="tipoc">
-              <option value="Default">Tipo de crédito</option>
+              <option value="0">Tipo de crédito</option>
               <option value="1">Personal</option>
               <option value="2">Refacciones</option>
               <option value="3">Hipotecario</option>
               <option value="4">Prendario</option>             
              </select>
         </div>
-        <div>
+        <div id="cantCuotas">
              <select class="elemento" name="Cuotas" id="cuotas1">
-              <option value="Default">Cantidad de cuotas</option>
+              <option value="0">Cantidad de cuotas</option>
               <option value="6">6</option>
               <option value="12">12</option>
               <option value="18">18</option>
               <option value="24">24</option>           
               <option value="36">36</option>
-              <option value="48">48</option>
-              <option value="60">60</option>
-              <option value="120">120</option>       
-              <option value="240">240</option>
              </select>
         </div>
 
@@ -143,7 +139,7 @@
             <input class="elemento" type="number" name="egresos" placeholder="Gastos mensuales" id="outcomes">    
         </div>
         <div>
-            <select class="elemento" name="Ocupacion" id="">
+            <select class="elemento" name="Ocupacion" id="ocupation">
              <option value="Default">Ocupación</option>
              <option value="emplDep">Empleado en relación de dependencia</option>
              <option value="mono">Monotributista</option>
