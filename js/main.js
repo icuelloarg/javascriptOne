@@ -34,6 +34,42 @@ const credJson = JSON.stringify(credito);
 console.log(credJson);
 
 
+// Obtengo ambos select
+const selectTipoCredito = document.getElementById('tipoc');
+const selectCantCuotas = document.getElementById('cuotas1');
+
+const generarSelect = (cant1, cant2, cant3, cant4, cant5) => {
+    return `
+        <option value="Default">Cantidad de cuotas</option>
+        <option value="${cant1}">${cant1}</option>
+        <option value="${cant2}">${cant2}</option>
+        <option value="${cant3}">${cant3}</option>
+        <option value="${cant4}">${cant4}</option>
+        <option value="${cant5}">${cant5}</option>
+    `;
+}
+
+selectTipoCredito.addEventListener('change', () => {
+    switch (selectTipoCredito.value) {
+        case "1":
+            selectCantCuotas.innerHTML = generarSelect("3", "6", "12", "18", "36");
+            break;
+        case "2":
+            selectCantCuotas.innerHTML = generarSelect("6", "12", "18", "24", "36");
+            break;
+        case "3":
+            selectCantCuotas.innerHTML = generarSelect("60","90", "120", "180", "240");
+            break;
+        case "4":
+            selectCantCuotas.innerHTML = generarSelect("12", "24", "36", "48", "60");
+            break;
+        default:
+            selectCantCuotas.innerHTML = '<option value="Default">Cantidad de cuotas</option>';
+    }
+});
+
+
+
 let simulador = document.getElementById("submit1");
 simulador.onclick = function init(){
     simulador.innerHTML = `Solicitar`;
@@ -158,39 +194,5 @@ solicitud.onclick = function valorCuota (){
 
 
 }
-
-// Obtengo ambos select
-const selectTipoCredito = document.getElementById('tipoc');
-const selectCantCuotas = document.getElementById('cuotas1');
-
-const generarSelect = (cant1, cant2, cant3, cant4, cant5) => {
-    return `
-        <option value="Default">Cantidad de cuotas</option>
-        <option value="${cant1}">${cant1}</option>
-        <option value="${cant2}">${cant2}</option>
-        <option value="${cant3}">${cant3}</option>
-        <option value="${cant4}">${cant4}</option>
-        <option value="${cant5}">${cant5}</option>
-    `;
-}
-
-selectTipoCredito.addEventListener('change', () => {
-    switch (selectTipoCredito.value) {
-        case "1":
-            selectCantCuotas.innerHTML = generarSelect("3", "6", "12", "18", "36");
-            break;
-        case "2":
-            selectCantCuotas.innerHTML = generarSelect("6", "12", "18", "24", "36");
-            break;
-        case "3":
-            selectCantCuotas.innerHTML = generarSelect("60","90", "120", "180", "240");
-            break;
-        case "4":
-            selectCantCuotas.innerHTML = generarSelect("12", "24", "36", "48", "60");
-            break;
-        default:
-            selectCantCuotas.innerHTML = '<option value="Default">Cantidad de cuotas</option>';
-    }
-});
 
 
