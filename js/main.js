@@ -1,40 +1,4 @@
 
-<<<<<<< HEAD
-const selectTipoCredito = document.getElementById('tipoc');
-const selectCantCuotas = document.getElementById('cuotas1');
-const removeresteco = document.getElementById("secondRemove");
-const removerlotodo = document.getElementById("thirdRemove")
-
-const generarSelect = (cant1, cant2, cant3, cant4, cant5) => {
-    return `
- 
-        <option value="${cant1}">${cant1}</option>
-        <option value="${cant2}">${cant2}</option>
-        <option value="${cant3}">${cant3}</option>
-        <option value="${cant4}">${cant4}</option>
-        <option value="${cant5}">${cant5}</option>
-    `;
-}
-
-selectTipoCredito.addEventListener('change', () => {
-    switch (selectTipoCredito.value) {
-        case "1":
-            selectCantCuotas.removeChild(removeresteco);
-            selectCantCuotas.removeChild(removerlotodo)
-            break;
-        case "2":
-            selectCantCuotas.innerHTML += generarSelect("6", "12", "18", "24", "36");
-            break;
-        case "3":
-            selectCantCuotas.innerHTML += generarSelect("60","90", "120", "180", "240");
-            break;
-        case "4":
-            selectCantCuotas.innerHTML += generarSelect("12", "24", "36", "48", "60");
-            break;
-        default:
-            selectCantCuotas.innerHTML += '';
-    }
-=======
 /* Se logró que el programa funcione sumando una funcion reload que permite reiniciar
 las variables para que el programa las tome */
 
@@ -94,9 +58,8 @@ localizador.onchange = function localizador1(){
 
 let objeto = Number(document.getElementById("tipocred").value);
 let cuotas = Number(document.getElementById("cuotificador").value);
->>>>>>> dom-Cuello
 
-});
+
 
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLastN").value;
@@ -104,13 +67,6 @@ let telefono = document.getElementById("phone").value;
 let dni = document.getElementById("dni").value;
 let correo = document.getElementById("mail").value;
 
-<<<<<<< HEAD
-const objeto = Number(document.getElementById("tipoc").value);
-const monto = Number(document.getElementById("monto1").value);
-const combo = document.getElementById("cuotas1");
-
-let cuotas = (combo.options[combo.selectedIndex].value);
-=======
 let simulador = document.getElementById("submit1");
 simulador.onclick = function init(){
     simulador.innerHTML = `Solicitar`;
@@ -129,7 +85,6 @@ function margen () {
     else if ((ingresos - gastos)>=15000) {return ((ingresos-gastos)*0.5)}
     else {return 0};
 }
->>>>>>> dom-Cuello
 
 
 let ingresos = Number(document.getElementById("incomes").value);
@@ -224,15 +179,12 @@ class Solicitante {
 
 
 
-<<<<<<< HEAD
-=======
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
 
    
     
->>>>>>> dom-Cuello
 function respuestaCredito (){
     let cuotaPagar = 0;
     let mensaje = `Su cuota a pagar sería de `;
@@ -264,17 +216,9 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
-<<<<<<< HEAD
-
-           let responderC = document.querySelector(".elemento1");
-            let cuotaMostrar = (parseInt(cuotaPagar));
-            responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
-
-=======
             let responderC = document.querySelector(".elemento1");
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
->>>>>>> dom-Cuello
         }
         else {alert(`Te esperamos la proxima`)};
 }
@@ -285,27 +229,6 @@ let solicitud = document.getElementById("submit1");
 solicitud.onclick = function valorCuota (){
 
 
-<<<<<<< HEAD
-    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
-    solicitante1.accesoSolicitante()
-    console.log(solicitante1)
-    const typeSolic = JSON.stringify(solicitante1);
-    console.log(typeSolic);
-
-    let responderk = document.querySelector(".formulario");
-    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
-    responderk.innerHTML += `    <div class="divRespuesta">
-                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
-                                   
-                                </div>`;}
-   
-        
-
-
-}
-
-
-=======
 
     respuestaCredito();   
 
@@ -327,5 +250,4 @@ solicitud.onclick = function valorCuota (){
                                    
                                 </div>`;}
 }
- 
->>>>>>> dom-Cuello
+
