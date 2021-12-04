@@ -2,6 +2,8 @@
 /* Se logró que el programa funcione sumando una funcion reload que permite reiniciar
 las variables para que el programa las tome */
 
+/* Se cambiaron determinadas variables que entraban en conflicto */
+
 
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLast").value;
