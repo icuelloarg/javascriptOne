@@ -1,19 +1,77 @@
 
-// recordatorio
-/*Corregir estilos de caja de respuesta de credito */
+/* Se logró que el programa funcione sumando una funcion reload que permite reiniciar
+las variables para que el programa las tome */
+
+
+let nombre = document.getElementById("formName").value;
+let apellido = document.getElementById("formLast").value;
+let dni = document.getElementById("dni").value;
+let correo = document.getElementById("mail").value;
+let telefono = document.getElementById("phone").value;
+let ingresos = Number(document.getElementById("income").value);
+let gastos = Number(document.getElementById("outcome").value);
 
 
 
 
+const monto = Number(document.getElementById("monto").value);
 
 
-//SEPTIMA ENTREGA
-/* Se resuelven las salidas del calculador por medio de DOM, creando un espacio input disabled
-para el valor de la cuota y el mensaje de salida aparece a continuacion del ASIDE */
+let selectTipoCredito = document.getElementById('tipocred');
+let selectCantCuotas = document.getElementById('cuotificador');
+const remover120 = document.getElementById("120c");
+const remover240 = document.getElementById("240c");
+const remover60 = document.getElementById("60c");
+const remover48 = document.getElementById("48c")
+
+
+selectTipoCredito.addEventListener('change', () => {
+    switch (selectTipoCredito.value) {
+        case "1":
+            selectCantCuotas.removeChild(remover48);
+            selectCantCuotas.removeChild(remover60);
+            selectCantCuotas.removeChild(remover120);
+            selectCantCuotas.removeChild(remover240);
+            break;
+        case "2":
+            selectCantCuotas.removeChild(remover48);
+            selectCantCuotas.removeChild(remover60);
+            selectCantCuotas.removeChild(remover120);
+            selectCantCuotas.removeChild(remover240);
+            break;
+        case "3":
+            break;
+        case "4":
+            selectCantCuotas.removeChild(remover120);
+            selectCantCuotas.removeChild(remover240);
+            break;
+        default:
+            selectCantCuotas.innerHTML += '';
+    }
+
+});
+
+let localizador = document.getElementById("occupancy");
+localizador.onchange = function localizador1(){
+    location.reload();
+}
+
+let objeto = Number(document.getElementById("tipocred").value);
+let cuotas = Number(document.getElementById("cuotificador").value);
+
+
+
+let simulador = document.getElementById("submit1");
+simulador.onclick = function init(){
+    simulador.innerHTML = `Solicitar`;
+    console.log(nombre);
+    console.log(cuotas);
+    console.log(monto);
+    console.log(ingresos);
+    console.log(objeto);
+
 function margen () {
-    let ingresos = Number(parseInt(prompt(`Cual es tu ingreso mensual en pesos?`)));
-    let gastos = Number(parseInt(prompt(`Cuanto es tu gasto mensual en pesos?`)));
-    
+ 
     
     if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
     else if ((ingresos - gastos)>=50000) {return ((ingresos-gastos)*0.8)}
@@ -43,7 +101,8 @@ credito.push(new Creditos(2,`refacciones`, 0.02, 37));
 credito.push(new Creditos(3,`hipotecario`, 0.017, 241));
 credito.push(new Creditos(4,`prendario`, 0.0192, 61));
 
-
+const credJson = JSON.stringify(credito);
+console.log(credJson);
 
 function cuotasMaxima(){
     const cuotamax = credito.find(credito => credito.numero === objeto)
@@ -82,35 +141,14 @@ class Solicitante {
 
 }
 
-function valorCuota (mensaje, cuotaPagar){
 
-    let nombre = prompt(`Cual es tu nombre?`);
-    let apellido = prompt(`Cual es tu apellido?`);
-    let dni = prompt(`Numero de DNI`);
-    let correo = prompt(`Correo electronico`);
-    let telefono = prompt(`Telefono`);
+
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
 
-    //SEPTIMA ENTREGA  -  MENSAJE DE SALIDA
-
-    let responderk = document.querySelector(".formulario");
-    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
-    responderk.innerHTML += `    <div class="divRespuesta">
-                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
-                                   
-                                </div>`;
    
-        
-}
-/* 
- <input type="text" class="elemento" id="resp1" value="" disabled>
-
-  <p>
-${datosP}
-</p>*/
-
+    
 function respuestaCredito (){
     let cuotaPagar = 0;
     let mensaje = `Su cuota a pagar sería de `;
@@ -142,89 +180,35 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
-            //SEPTIMA ENTREGA - VALOR DE LA CUOTA DEL CREDITO SOLICITADO
-           let responderC = document.querySelector(".elemento1");
+            let responderC = document.querySelector(".elemento1");
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
-            document.querySelector(".submitButton").value = `Solicitar`;
-            valorCuota(mensaje, parseInt(cuotaPagar));
-        
         }
         else {alert(`Te esperamos la proxima`)};
 }
 
 
 
-    const objeto = Number(parseInt(prompt(`Bienvenido a CrediCoder, indique con el Nro el tipo de credito:
-    1- Personal hasta 36 cuotas
-    2- Refacciones hasta 36 cuotas
-    3- Hipotecario hasta 240 cuotas
-    4- Prendario hasta 60 cuotas`)));
-    const monto = Number(parseInt(prompt(`Que monto solicita?`)));
-    const cuotas = Number(parseInt(prompt(`A devolver en cuantos meses?`)));
+
 
     respuestaCredito();   
-    
 
- 
-    credito.sort(function (a, b){
-        return (b.numero - a.numero)
-    });
-    console.log(credito);
-    
+    let solicitud = document.getElementById("submit1");
+solicitud.onclick = function valorCuota (){
 
 
-// TERCERA ENTREGA 
-/*
-let ocupacion = (prompt("Tienes ingresos regulares? SI o NO"))
-if ((ocupacion != "SI") && (ocupacion != "NO")) {alert("Ingresa una respuesta valida")}
-else if (ocupacion == "NO") {alert("Al no tener ingresos no podemos ofrecerte un CREDITO")};
+    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
+    solicitante1.accesoSolicitante()
+    console.log(solicitante1)
+    const typeSolic = JSON.stringify(solicitante1);
+    console.log(typeSolic);
 
-while ((ocupacion == "SI") && (ocupacion != "ESC"))  {
 
-    const minimo = 25000
-    let ingresos = Number(parseInt(prompt("Cuál es su ingreso mensual en pesos?")));
-    if (ingresos < 25000){break;}
-    let gastos = Number( parseInt(prompt("Cuánto gasta por mes?")));
-    let dinero = Number(ingresos - gastos);
-    let aprobado50 = (dinero * 12);
-    let aprobado30 = (dinero * 6);
-    let aprobado20 = (dinero * 3);
-
-    if ((dinero) >= 50000){alert("Podrías solicitar un crédito de " + aprobado50);} 
-    else if ((dinero) >= 30000){alert("Podrías solicitar un crédito de " + aprobado30);} 
-    else if ((dinero) >= 20000){alert("Podrías solicitar un crédito de " + aprobado20);}
-    else {alert("No podemos ofrecerte ningún crédito")}
-    
-    
+    let responderk = document.querySelector(".formulario");
+    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+    responderk.innerHTML += `    <div class="divRespuesta">
+                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
+                                   
+                                </div>`;}
 }
-alert("Tus ingresos son insuficientes")
-
-*/
-
-
-// SEGUNDA ENTREGA
-/*
-let ingresos = Number(parseInt(prompt("Cuál es su ingreso mensual en pesos?")));
-let gastos = Number( parseInt(prompt("Cuánto gasta por mes?")));
-let dinero = Number(ingresos - gastos);
-let aprobado50 = (dinero * 12);
-let aprobado30 = (dinero * 6);
-let aprobado20 = (dinero * 3);
-
-if ((dinero) >= 50000){alert("Podrías solicitar un crédito de " + aprobado50);} 
-else if ((dinero) >= 30000){alert("Podrías solicitar un crédito de " + aprobado30);} 
-else if ((dinero) >= 20000){alert("Podrías solicitar un crédito de " + aprobado20);}
-else {alert("No podemos ofrecerte ningún crédito")}
-*/
-
-/* PRIMERA ENTREGA
-let nombre = prompt( "Decinos tu nombre");
-let edad = prompt( "Cuál es tu edad?");
-let ciudad = prompt( "En qué ciudad vive usted?");
-let provincia = prompt( "En qué provincia se encuentra?");
-let pais = prompt( "De qué país?");
-let mensaje = "tu nombre es " + nombre + " y tu edad es " + edad + ", vivis en " + 
-ciudad + " de la provincia de " + provincia + " en el país " + pais;
-alert(mensaje)
-*/
+ 

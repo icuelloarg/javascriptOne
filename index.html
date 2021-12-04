@@ -93,7 +93,7 @@
     </div>
 </main>
 <aside class="sidebar">
-    <form class="formulario" action="/prueba" method="POST">
+    <form class="formulario" action="/prueba" method="">
         <!-- Inicio formulario de Solicitud de credito -->
         <div id="simular">
             <h1 class="tituloForm">Simulá tu crédito</h1>
@@ -102,45 +102,48 @@
     
         <div class="combinedLine">
             <input class="elemento" type="text" name="Nombre" placeholder="Nombre" id="formName">       
-            <input class="elemento" type="text" name="Apellido" placeholder="Apellido">    
+            <input class="elemento" type="text" name="Apellido" placeholder="Apellido" id="formLast">    
         </div>
         <div class="combinedLine">
-            <input class="elemento" type="text" name="DNI" placeholder="DNI">    
-            <input class="elemento" type="text" name="Teléfono" placeholder="Telefono">    
+            <input class="elemento" type="text" name="DNI" placeholder="DNI" id="dni">    
+            <input class="elemento" type="text" name="Teléfono" placeholder="Telefono" id="phone">    
         </div>
         <div>
-            <input class="elemento" type="email" name="E-Mail" placeholder="E-mail">
+            <input class="elemento" type="email" name="E-Mail" placeholder="E-mail" id="mail">
         </div>
         <div>
-             <select class="elemento" name="Crédito" id="">
+            <input class="elemento" type="text" placeholder="Monto" id="monto">
+        </div>
+        <div>
+             <select class="elemento ticred" name="Crédito" id="tipocred">
               <option value="Default">Tipo de crédito</option>
-              <option value="Personal">Personal</option>
-              <option value="Refacciones">Refacciones</option>
-              <option value="Cba">Hipotecario</option>
-              <option value="Tuc">Prendario</option>             
+              <option value="1">Personal</option>
+              <option value="2">Refacciones</option>
+              <option value="3">Hipotecario</option>
+              <option value="4">Prendario</option>             
              </select>
         </div>
         <div>
-             <select class="elemento" name="Cuotas" id="">
+             <select class="elemento cuotifica" name="Cuotas" id="cuotificador">
               <option value="Default">Cantidad de cuotas</option>
               <option value="6">6</option>
               <option value="12">12</option>
               <option value="18">18</option>
               <option value="24">24</option>           
               <option value="36">36</option>
-              <option value="48">48</option>
-              <option value="60">60</option>
-              <option value="120">120</option>       
-              <option value="240">240</option>
+              <option value="48" id="48c">48</option>
+              <option value="60" id="60c">60</option>
+              <option value="120" id="120c">120</option>       
+              <option value="240" id="240c">240</option>
              </select>
         </div>
 
         <div class="combinedLine">
-            <input class="elemento" type="number" name="Nombre" placeholder="Ingresos mensuales">       
-            <input class="elemento" type="number" name="Apellido" placeholder="Gastos mensuales">    
+            <input class="elemento" type="number" name="Nombre" placeholder="Ingresos mensuales" id="income">       
+            <input class="elemento" type="number" name="Apellido" placeholder="Gastos mensuales" id="outcome">    
         </div>
         <div>
-            <select class="elemento" name="Ocupacion" id="">
+            <select class="elemento" name="Ocupacion" id="occupancy">
              <option value="Default">Ocupación</option>
              <option value="emplDep">Empleado en relación de dependencia</option>
              <option value="mono">Monotributista</option>
@@ -151,10 +154,10 @@
        <div class="elemento1">
            <input type="text" class="elemento" id="resp" value="" disabled>
        </div>
-        <div class="submit">
-            <input class="submitButton" type="submit" value="Evaluar">
-            <input type="reset" value="Borrar">
-        </div>
+       <div class="submit">
+        <button class="submit1" id="submit1" type="button">Evaluar</button>
+        <input type="reset" value="Borrar">
+    </div>
    </form>
 </aside>
 <footer class="responsiveFooter">
