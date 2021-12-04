@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 const selectTipoCredito = document.getElementById('tipoc');
 const selectCantCuotas = document.getElementById('cuotas1');
 const removeresteco = document.getElementById("secondRemove");
@@ -33,6 +34,67 @@ selectTipoCredito.addEventListener('change', () => {
         default:
             selectCantCuotas.innerHTML += '';
     }
+=======
+/* Se logró que el programa funcione sumando una funcion reload que permite reiniciar
+las variables para que el programa las tome */
+
+
+let nombre = document.getElementById("formName").value;
+let apellido = document.getElementById("formLast").value;
+let dni = document.getElementById("dni").value;
+let correo = document.getElementById("mail").value;
+let telefono = document.getElementById("phone").value;
+let ingresos = Number(document.getElementById("income").value);
+let gastos = Number(document.getElementById("outcome").value);
+
+
+
+
+const monto = Number(document.getElementById("monto").value);
+
+
+let selectTipoCredito = document.getElementById('tipocred');
+let selectCantCuotas = document.getElementById('cuotificador');
+const remover120 = document.getElementById("120c");
+const remover240 = document.getElementById("240c");
+const remover60 = document.getElementById("60c");
+const remover48 = document.getElementById("48c")
+
+
+selectTipoCredito.addEventListener('change', () => {
+    switch (selectTipoCredito.value) {
+        case "1":
+            selectCantCuotas.removeChild(remover48);
+            selectCantCuotas.removeChild(remover60);
+            selectCantCuotas.removeChild(remover120);
+            selectCantCuotas.removeChild(remover240);
+            break;
+        case "2":
+            selectCantCuotas.removeChild(remover48);
+            selectCantCuotas.removeChild(remover60);
+            selectCantCuotas.removeChild(remover120);
+            selectCantCuotas.removeChild(remover240);
+            break;
+        case "3":
+            break;
+        case "4":
+            selectCantCuotas.removeChild(remover120);
+            selectCantCuotas.removeChild(remover240);
+            break;
+        default:
+            selectCantCuotas.innerHTML += '';
+    }
+
+});
+
+let localizador = document.getElementById("occupancy");
+localizador.onchange = function localizador1(){
+    location.reload();
+}
+
+let objeto = Number(document.getElementById("tipocred").value);
+let cuotas = Number(document.getElementById("cuotificador").value);
+>>>>>>> dom-Cuello
 
 });
 
@@ -42,11 +104,32 @@ let telefono = document.getElementById("phone").value;
 let dni = document.getElementById("dni").value;
 let correo = document.getElementById("mail").value;
 
+<<<<<<< HEAD
 const objeto = Number(document.getElementById("tipoc").value);
 const monto = Number(document.getElementById("monto1").value);
 const combo = document.getElementById("cuotas1");
 
 let cuotas = (combo.options[combo.selectedIndex].value);
+=======
+let simulador = document.getElementById("submit1");
+simulador.onclick = function init(){
+    simulador.innerHTML = `Solicitar`;
+    console.log(nombre);
+    console.log(cuotas);
+    console.log(monto);
+    console.log(ingresos);
+    console.log(objeto);
+
+function margen () {
+ 
+    
+    if ((ingresos - gastos)>=80000) {return ((ingresos-gastos)*0.8)}
+    else if ((ingresos - gastos)>=50000) {return ((ingresos-gastos)*0.8)}
+    else if ((ingresos - gastos)>=30000) {return ((ingresos-gastos)*0.6)}
+    else if ((ingresos - gastos)>=15000) {return ((ingresos-gastos)*0.5)}
+    else {return 0};
+}
+>>>>>>> dom-Cuello
 
 
 let ingresos = Number(document.getElementById("incomes").value);
@@ -98,7 +181,8 @@ function categoria () {
     return (margen() * cuotas);
 }
 
-
+const credJson = JSON.stringify(credito);
+console.log(credJson);
 
 function cuotasMaxima(){
     const cuotamax = credito.find(credito => credito.numero === objeto)
@@ -140,6 +224,15 @@ class Solicitante {
 
 
 
+<<<<<<< HEAD
+=======
+    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
+    solicitante1.accesoSolicitante()
+    console.log(solicitante1)
+
+   
+    
+>>>>>>> dom-Cuello
 function respuestaCredito (){
     let cuotaPagar = 0;
     let mensaje = `Su cuota a pagar sería de `;
@@ -171,11 +264,17 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
+<<<<<<< HEAD
 
            let responderC = document.querySelector(".elemento1");
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
 
+=======
+            let responderC = document.querySelector(".elemento1");
+            let cuotaMostrar = (parseInt(cuotaPagar));
+            responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
+>>>>>>> dom-Cuello
         }
         else {alert(`Te esperamos la proxima`)};
 }
@@ -186,6 +285,7 @@ let solicitud = document.getElementById("submit1");
 solicitud.onclick = function valorCuota (){
 
 
+<<<<<<< HEAD
     const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
     solicitante1.accesoSolicitante()
     console.log(solicitante1)
@@ -205,3 +305,27 @@ solicitud.onclick = function valorCuota (){
 }
 
 
+=======
+
+    respuestaCredito();   
+
+    let solicitud = document.getElementById("submit1");
+solicitud.onclick = function valorCuota (){
+
+
+    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
+    solicitante1.accesoSolicitante()
+    console.log(solicitante1)
+    const typeSolic = JSON.stringify(solicitante1);
+    console.log(typeSolic);
+
+
+    let responderk = document.querySelector(".formulario");
+    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+    responderk.innerHTML += `    <div class="divRespuesta">
+                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
+                                   
+                                </div>`;}
+}
+ 
+>>>>>>> dom-Cuello
