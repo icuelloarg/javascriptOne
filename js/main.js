@@ -1,4 +1,40 @@
 
+const selectTipoCredito = document.getElementById('tipoc');
+const selectCantCuotas = document.getElementById('cuotas1');
+const removeresteco = document.getElementById("secondRemove");
+const removerlotodo = document.getElementById("thirdRemove")
+
+const generarSelect = (cant1, cant2, cant3, cant4, cant5) => {
+    return `
+ 
+        <option value="${cant1}">${cant1}</option>
+        <option value="${cant2}">${cant2}</option>
+        <option value="${cant3}">${cant3}</option>
+        <option value="${cant4}">${cant4}</option>
+        <option value="${cant5}">${cant5}</option>
+    `;
+}
+
+selectTipoCredito.addEventListener('change', () => {
+    switch (selectTipoCredito.value) {
+        case "1":
+            selectCantCuotas.removeChild(removeresteco);
+            selectCantCuotas.removeChild(removerlotodo)
+            break;
+        case "2":
+            selectCantCuotas.innerHTML += generarSelect("6", "12", "18", "24", "36");
+            break;
+        case "3":
+            selectCantCuotas.innerHTML += generarSelect("60","90", "120", "180", "240");
+            break;
+        case "4":
+            selectCantCuotas.innerHTML += generarSelect("12", "24", "36", "48", "60");
+            break;
+        default:
+            selectCantCuotas.innerHTML += '';
+    }
+
+});
 
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLastN").value;
@@ -8,7 +44,10 @@ let correo = document.getElementById("mail").value;
 
 const objeto = Number(document.getElementById("tipoc").value);
 const monto = Number(document.getElementById("monto1").value);
-const cuotas = Number(document.getElementById("cuotas1").value);
+const combo = document.getElementById("cuotas1");
+
+let cuotas = (combo.options[combo.selectedIndex].value);
+
 
 let ingresos = Number(document.getElementById("incomes").value);
 let gastos = Number(document.getElementById("outcomes").value);
@@ -25,53 +64,23 @@ class Creditos {
 
 const credito = [];
 
-credito.push(new Creditos(1,`Personal`, 0.021, 37));
-credito.push(new Creditos(2,`Refacciones`, 0.02, 37));
-credito.push(new Creditos(3,`Hipotecario`, 0.017, 241));
-credito.push(new Creditos(4,`Prendario`, 0.0192, 61));
+credito.push(new Creditos(1,`Personal`, 0.021, "37"));
+credito.push(new Creditos(2,`Refacciones`, 0.02, "37"));
+credito.push(new Creditos(3,`Hipotecario`, 0.017, "241"));
+credito.push(new Creditos(4,`Prendario`, 0.0192, "61"));
 
 const credJson = JSON.stringify(credito);
 console.log(credJson);
 
 
 // Obtengo ambos select
-const selectTipoCredito = document.getElementById('tipoc');
-const selectCantCuotas = document.getElementById('cuotas1');
 
-const generarSelect = (cant1, cant2, cant3, cant4, cant5) => {
-    return `
-        <option value="Default">Cantidad de cuotas</option>
-        <option value="${cant1}">${cant1}</option>
-        <option value="${cant2}">${cant2}</option>
-        <option value="${cant3}">${cant3}</option>
-        <option value="${cant4}">${cant4}</option>
-        <option value="${cant5}">${cant5}</option>
-    `;
-}
-
-selectTipoCredito.addEventListener('change', () => {
-    switch (selectTipoCredito.value) {
-        case "1":
-            selectCantCuotas.innerHTML = generarSelect("3", "6", "12", "18", "36");
-            break;
-        case "2":
-            selectCantCuotas.innerHTML = generarSelect("6", "12", "18", "24", "36");
-            break;
-        case "3":
-            selectCantCuotas.innerHTML = generarSelect("60","90", "120", "180", "240");
-            break;
-        case "4":
-            selectCantCuotas.innerHTML = generarSelect("12", "24", "36", "48", "60");
-            break;
-        default:
-            selectCantCuotas.innerHTML = '<option value="Default">Cantidad de cuotas</option>';
-    }
-});
 
 
 
 let simulador = document.getElementById("submit1");
 simulador.onclick = function init(){
+console.log(cuotas)
     simulador.innerHTML = `Solicitar`;
     //e.preventDefault();
 
@@ -137,22 +146,22 @@ function respuestaCredito (){
 
         switch (objeto){
             case 1:
-                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){               
+                if (montoTotal() < categoria()){               
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
             case 2:
-                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
+                if (montoTotal() < categoria()){
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
             case 3:
-                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
+                if (montoTotal() < categoria()){
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
             case 4:
-                if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
+                if (montoTotal() < categoria()){
                     cuotaPagar = calculoCredito()}
                 else {alert(`No eres apto para este credito`)};
                 break;
