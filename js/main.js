@@ -12,13 +12,7 @@ let correo = document.getElementById("mail").value;
 let telefono = document.getElementById("phone").value;
 let ingresos = Number(document.getElementById("income").value);
 let gastos = Number(document.getElementById("outcome").value);
-
-
-
-
 const monto = Number(document.getElementById("monto").value);
-
-
 let selectTipoCredito = document.getElementById('tipocred');
 let selectCantCuotas = document.getElementById('cuotificador');
 const remover120 = document.getElementById("120c");
@@ -61,13 +55,6 @@ localizador.onchange = function localizador1(){
 let objeto = Number(document.getElementById("tipocred").value);
 let cuotas = Number(document.getElementById("cuotificador").value);
 
-
-
-let nombre = document.getElementById("formName").value;
-let apellido = document.getElementById("formLastN").value;
-let telefono = document.getElementById("phone").value;
-let dni = document.getElementById("dni").value;
-let correo = document.getElementById("mail").value;
 
 let simulador = document.getElementById("submit1");
 simulador.onclick = function init(){
@@ -225,12 +212,6 @@ function respuestaCredito (){
         else {alert(`Te esperamos la proxima`)};
 }
 
-respuestaCredito()
-
-let solicitud = document.getElementById("submit1");
-solicitud.onclick = function valorCuota (){
-
-
 
     respuestaCredito();   
 
@@ -252,4 +233,4 @@ solicitud.onclick = function valorCuota (){
                                    
                                 </div>`;}
 }
-
+};
