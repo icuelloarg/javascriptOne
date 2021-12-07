@@ -204,6 +204,7 @@ solicitud.onclick = function valorCuota (){
     console.log(solicitante1)
     const typeSolic = JSON.stringify(solicitante1);
     console.log(typeSolic);
+    localStorage.setItem(`solicitante`, typeSolic);
 
 
     let responderk = document.querySelector(".formulario");
