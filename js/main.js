@@ -4,6 +4,22 @@ las variables para que el programa las tome */
 
 /* Se cambiaron determinadas variables que entraban en conflicto */
 
+/* 
+window.onload = function rename(){
+    const solicitante2 = JSON.parse(localStorage.getItem("solicitante1"));
+    let nombre = solicitante2.nombre;
+    let apellido = solicitante2.apellido;
+    let dni = solicitante2.dni;
+    let correo = solicitante2.correo;
+    let telefono = solicitante2.telefono;
+    let ingresos = solicitante2.ingresos;
+    let gastos = solicitante2.gastos;
+    let objeto = solicitante2.objeto;
+    let cuotas = solicitante2.cuotas;
+    let localizador = solicitante2.localizador;
+    const monto = solicitante2.monto;
+
+} */
 
 let nombre = document.getElementById("formName").value;
 let apellido = document.getElementById("formLast").value;
@@ -16,7 +32,7 @@ let gastos = Number(document.getElementById("outcome").value);
 
 
 
-const monto = Number(document.getElementById("monto").value);
+let monto = Number(document.getElementById("monto").value);
 
 
 let selectTipoCredito = document.getElementById('tipocred');
@@ -52,18 +68,78 @@ selectTipoCredito.addEventListener('change', () => {
     }
 
 });
-
-let localizador = document.getElementById("occupancy");
-localizador.onchange = function localizador1(){
-    location.reload();
-}
-
 let objeto = Number(document.getElementById("tipocred").value);
 let cuotas = Number(document.getElementById("cuotificador").value);
 
+class Solicitante {
+    constructor (nombre, apellido, dni, correo, telefono, monto, objeto, cuotas, ingresos, gastos){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.monto = monto;
+        this.objeto = objeto;
+        this.cuotas = cuotas;
+        this.ingresos = ingresos;
+        this.gastos = gastos;
+    }
+    accesoSolicitante() {
+        if (this.nombre != false && this.apellido != false){
+         
+        }
+        else {
+            alert(`Alguno de los datos son incorrectos`);
+        }
+    }
+
+}
+
+const personasD = [];
+
+const arrayData = document.getElementById("outcome");
+arrayData.onchange = function saveData(){
+    personasD.push(new Solicitante (nombre, apellido, dni, correo, telefono, monto, objeto, cuotas, ingresos, gastos));
+   const savePersona = JSON.stringify(personasD);
+localStorage.setItem(`individuo`, savePersona);
+    console.log(personasD[0])
+}
 
 
-let simulador = document.getElementById("submit1");
+
+let localizador = document.getElementById("occupancy");
+localizador.onclick = function localizador1(){
+    location.reload();
+    document.getElementsByTagName("Form").onload = function rename(){
+        let solicitador = (JSON.parse(localStorage.getItem(`individuo`)))[0];
+        nombre = solicitador.nombre;
+        apellido = solicitador.apellido;
+        dni = solicitador.dni;
+        correo = solicitador.correo;
+        telefono = solicitador.telefono;
+        ingresos = solicitador.ingresos;
+        gastos = solicitador.gastos;
+        monto = solicitador.monto;
+        objeto = solicitador.objeto;
+        cuotas = solicitador.cuotas;
+    
+
+
+
+
+
+let borrador = document.getElementById("borrar");
+borrador.onclick = function borrar(){
+    localStorage.clear();
+}
+
+//
+//const typeSolic = JSON.stringify(solicitante1);
+//localStorage.setItem("solicitante1", typeSolic);
+//console.log(typeSolic);
+
+
+let simulador = document.getElementById("submit1");     
 simulador.onclick = function init(){
     simulador.innerHTML = `Solicitar`;
     console.log(nombre);
@@ -124,30 +200,10 @@ function calculoCredito () {
 }
 
 
-class Solicitante {
-    constructor (nombre, apellido, dni, correo, telefono){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.correo = correo;
-        this.telefono = telefono;
-    }
-    accesoSolicitante() {
-        if (this.nombre != false && this.apellido != false){
-         
-        }
-        else {
-            alert(`Alguno de los datos son incorrectos`);
-        }
-    }
 
-}
-
-
-
-    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
+    /* const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono, monto, objeto, cuotas, ingresos, gastos, localizador);
     solicitante1.accesoSolicitante()
-    console.log(solicitante1)
+    console.log(solicitante1) */
 
    
     
@@ -199,18 +255,16 @@ function respuestaCredito (){
 solicitud.onclick = function valorCuota (){
 
 
-    const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono);
-    solicitante1.accesoSolicitante()
-    console.log(solicitante1)
-    const typeSolic = JSON.stringify(solicitante1);
-    console.log(typeSolic);
 
 
     let responderk = document.querySelector(".formulario");
-    let datosP = `Hola ${nombre}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+    let datosP = `Hola ${nombre} ${apellido}, DNI ${dni}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
     responderk.innerHTML += `    <div class="divRespuesta">
                                     <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
                                    
                                 </div>`;}
+
 }
- 
+}
+
+}
