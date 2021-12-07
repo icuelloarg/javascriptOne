@@ -1,38 +1,8 @@
 
-/* Se logró que el programa funcione sumando una funcion reload que permite reiniciar
-las variables para que el programa las tome */
+/* Redenominando determinadas variables se logr[o que el programa funcione en todos los navegadores.
+Se utiliza LocalStorage para guardar al solicitante] */
 
 /* Se cambiaron determinadas variables que entraban en conflicto */
-
-/* 
-window.onload = function rename(){
-    const solicitante2 = JSON.parse(localStorage.getItem("solicitante1"));
-    let nombre = solicitante2.nombre;
-    let apellido = solicitante2.apellido;
-    let dni = solicitante2.dni;
-    let correo = solicitante2.correo;
-    let telefono = solicitante2.telefono;
-    let ingresos = solicitante2.ingresos;
-    let gastos = solicitante2.gastos;
-    let objeto = solicitante2.objeto;
-    let cuotas = solicitante2.cuotas;
-    let localizador = solicitante2.localizador;
-    const monto = solicitante2.monto;
-
-} */
-
-let nombre = document.getElementById("formName").value;
-let apellido = document.getElementById("formLast").value;
-let dni = document.getElementById("dni").value;
-let correo = document.getElementById("mail").value;
-let telefono = document.getElementById("phone").value;
-let ingresos = Number(document.getElementById("income").value);
-let gastos = Number(document.getElementById("outcome").value);
-
-
-
-
-let monto = Number(document.getElementById("monto").value);
 
 
 let selectTipoCredito = document.getElementById('tipocred');
@@ -68,21 +38,22 @@ selectTipoCredito.addEventListener('change', () => {
     }
 
 });
-let objeto = Number(document.getElementById("tipocred").value);
-let cuotas = Number(document.getElementById("cuotificador").value);
+
+
 
 class Solicitante {
-    constructor (nombre, apellido, dni, correo, telefono, monto, objeto, cuotas, ingresos, gastos){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.monto = monto;
-        this.objeto = objeto;
-        this.cuotas = cuotas;
-        this.ingresos = ingresos;
-        this.gastos = gastos;
+    constructor (name, last, docu, mail, phone, ammount, object1, pays, incoming, outgoing){
+        this.name = name;
+        this.last = last;
+        this.docu = docu;
+        this.mail = mail;
+        this.phone = phone;
+        this.ammount = ammount;
+        this.object1 = object1;
+        this.pays = pays;
+        this.incoming = incoming;
+        this.outgoing = outgoing;
+
     }
     accesoSolicitante() {
         if (this.nombre != false && this.apellido != false){
@@ -97,46 +68,38 @@ class Solicitante {
 
 const personasD = [];
 
-const arrayData = document.getElementById("outcome");
-arrayData.onchange = function saveData(){
-    personasD.push(new Solicitante (nombre, apellido, dni, correo, telefono, monto, objeto, cuotas, ingresos, gastos));
-   const savePersona = JSON.stringify(personasD);
-localStorage.setItem(`individuo`, savePersona);
-    console.log(personasD[0])
-}
-
-
 
 let localizador = document.getElementById("occupancy");
-localizador.onclick = function localizador1(){
-    location.reload();
-    document.getElementsByTagName("Form").onload = function rename(){
-        let solicitador = (JSON.parse(localStorage.getItem(`individuo`)))[0];
-        nombre = solicitador.nombre;
-        apellido = solicitador.apellido;
-        dni = solicitador.dni;
-        correo = solicitador.correo;
-        telefono = solicitador.telefono;
-        ingresos = solicitador.ingresos;
-        gastos = solicitador.gastos;
-        monto = solicitador.monto;
-        objeto = solicitador.objeto;
-        cuotas = solicitador.cuotas;
-    
+localizador.onblur = function localizador1(){
+    let nombre1 = document.getElementById("formName").value;
+    let apellido1 = document.getElementById("formLast").value;
+    let dni1 = document.getElementById("dni").value;
+    let correo1 = document.getElementById("mail").value;
+    let telefono1 = document.getElementById("phone").value;
+    let objeto1 = Number(document.getElementById("tipocred").value);
+    let monto1 = Number(document.getElementById("monto").value);
+    let cuotas1 = Number(document.getElementById("cuotificador").value);
+    let ingresos1 = Number(document.getElementById("income").value);
+    let gastos1 = Number(document.getElementById("outcome").value);
 
 
 
+    const solicitador1 = new Solicitante (nombre1, apellido1, dni1, correo1, telefono1, monto1, objeto1, cuotas1, ingresos1, gastos1);
+    personasD.push(solicitador1);
+    const savePersona = JSON.stringify(personasD);
+    localStorage.setItem(`individuo`, savePersona);
 
 
-let borrador = document.getElementById("borrar");
-borrador.onclick = function borrar(){
-    localStorage.clear();
-}
-
-//
-//const typeSolic = JSON.stringify(solicitante1);
-//localStorage.setItem("solicitante1", typeSolic);
-//console.log(typeSolic);
+let nombre = document.getElementById("formName").value;
+let apellido = document.getElementById("formLast").value;
+let dni = document.getElementById("dni").value;
+let correo = document.getElementById("mail").value;
+let telefono = document.getElementById("phone").value;
+let ingresos = Number(document.getElementById("income").value);
+let gastos = Number(document.getElementById("outcome").value);
+let monto = Number(document.getElementById("monto").value);
+let objeto = Number(document.getElementById("tipocred").value);
+let cuotas = Number(document.getElementById("cuotificador").value);
 
 
 let simulador = document.getElementById("submit1");     
@@ -200,12 +163,6 @@ function calculoCredito () {
 }
 
 
-
-    /* const solicitante1 = new Solicitante (nombre, apellido, dni, correo, telefono, monto, objeto, cuotas, ingresos, gastos, localizador);
-    solicitante1.accesoSolicitante()
-    console.log(solicitante1) */
-
-   
     
 function respuestaCredito (){
     let cuotaPagar = 0;
@@ -267,4 +224,4 @@ solicitud.onclick = function valorCuota (){
 }
 }
 
-}
+
