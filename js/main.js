@@ -24,7 +24,12 @@ let selectCantCuotas = document.getElementById('cuotificador');
 const remover120 = document.getElementById("120c");
 const remover240 = document.getElementById("240c");
 const remover60 = document.getElementById("60c");
-const remover48 = document.getElementById("48c")
+const remover48 = document.getElementById("48c");
+const remover6 = document.getElementById("6c");
+const remover12 = document.getElementById("12c");
+const remover18 = document.getElementById("18c");
+const remover24 = document.getElementById("24c");
+const remover36 = document.getElementById("36c");
 
 
 selectTipoCredito.addEventListener('change', () => {
@@ -42,6 +47,14 @@ selectTipoCredito.addEventListener('change', () => {
             selectCantCuotas.removeChild(remover240);
             break;
         case "3":
+            selectCantCuotas.removeChild(remover6);
+            selectCantCuotas.removeChild(remover12);
+            selectCantCuotas.removeChild(remover18);
+            selectCantCuotas.removeChild(remover24);
+            selectCantCuotas.removeChild(remover36);
+            selectCantCuotas.removeChild(remover60);
+            selectCantCuotas.removeChild(remover48);
+
             break;
         case "4":
             selectCantCuotas.removeChild(remover120);
@@ -204,7 +217,7 @@ solicitud.onclick = function valorCuota (){
     console.log(solicitante1)
     const typeSolic = JSON.stringify(solicitante1);
     console.log(typeSolic);
-    localStorage.setItem(`solicitante`, typeSolic);
+    sessionStorage.setItem(`solicitante`, typeSolic);
 
 
     let responderk = document.querySelector(".formulario");
