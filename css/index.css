@@ -173,6 +173,8 @@ input, button, select {
     color: whitesmoke;
     font-size: 2rem;
     font-weight: bold; }
+  .submit .submi {
+    background-color: red; }
 
 .responsiveFooter {
   display: none; }

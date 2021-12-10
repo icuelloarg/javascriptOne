@@ -154,6 +154,9 @@ input, button, select{
         font-size: 2rem;
         font-weight: bold;
     }
+    & .submi {
+        background-color: red;
+    }
 }
 
 .responsiveFooter{

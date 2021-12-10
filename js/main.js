@@ -1,9 +1,24 @@
 
 
-/* Redenominando determinadas variables se logr[o que el programa funcione en todos los navegadores.
-Se utiliza LocalStorage para guardar al solicitante] */
+/* Intenté usar varios eventos, pero por ejemplo con el evento ready, click o change, me arroja 
+un mensaje de error, que la sintaxis está en desuso, y me envía a donde supuestamente
+está la nueva regla, pero el "reemplazo" tampoco me funciona. 
+Naturalmnte para que no se rompa el código volví atras con los cambios. Dejo un par de ejemplos 
+De las cosas que no funcionan.
+Si funcionó bien el agregado de HTML que hice al final, con los nuevos mensajes de salida que antes
+eran alert.*/
 
-/* Se cambiaron determinadas variables que entraban en conflicto */
+/* SNo funciona bien jQuery, en determinados eventos me arroja el mensaje de abajo */
+
+/* "(handler: ($: JQueryStatic) => void): JQuery<Document>" está en desuso.ts(6385)
+JQuery.d.ts(9539, 8): La declaración se ha marcado aquí como en desuso. */
+
+
+/* $(document).ready(function(){
+    console.log(`Site listo`);
+})
+
+ */
 
 
 let selectTipoCredito = document.getElementById('tipocred');
@@ -17,7 +32,7 @@ const remover12 = document.getElementById("12c");
 const remover18 = document.getElementById("18c");
 const remover24 = document.getElementById("24c");
 const remover36 = document.getElementById("36c");
-
+let responderC = document.querySelector(".elemento1");
 
 selectTipoCredito.addEventListener('change', () => {
     switch (selectTipoCredito.value) {
@@ -186,22 +201,22 @@ function respuestaCredito (){
             case 1:
                 if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){               
                     cuotaPagar = calculoCredito()}
-                else {alert(`No eres apto para este credito`)};
+                else {$(".elemento1").html(`<input type="text" class="elemento" id="resp" value="Tus ingresos son insuficientes." disabled>`)};
                 break;
             case 2:
                 if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
                     cuotaPagar = calculoCredito()}
-                else {alert(`No eres apto para este credito`)};
+                else {$(".elemento1").html(`<input type="text" class="elemento" id="resp" value="Tus ingresos son insuficientes." disabled>`)};
                 break;
             case 3:
                 if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
                     cuotaPagar = calculoCredito()}
-                else {alert(`No eres apto para este credito`)};
+                else {$(".elemento1").html(`<input type="text" class="elemento" id="resp" value="Tus ingresos son insuficientes." disabled>`)};
                 break;
             case 4:
                 if ((cuotas < cuotasMaxima()) && (montoTotal() < categoria())){
                     cuotaPagar = calculoCredito()}
-                else {alert(`No eres apto para este credito`)};
+                else {$(".elemento1").html(`<input type="text" class="elemento" id="resp" value="Tus ingresos son insuficientes." disabled>`)};
                 break;
             default:
                 mensaje = `Dato incorrecto`;
@@ -209,11 +224,13 @@ function respuestaCredito (){
             
         }
         if (cuotaPagar != false){
-            let responderC = document.querySelector(".elemento1");
+
             let cuotaMostrar = (parseInt(cuotaPagar));
             responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
         }
-        else {alert(`Te esperamos la proxima`)};
+        else {$(".elemento1").append(`<input type="text" class="elemento" id="resp" value="TE ESPERAMOS LA PROXIMA." disabled>`);
+                $(".submit").html( `<button class="submi" id="submi" type="reset">Hasta pronto!</button>`);
+            }
 }
 
 
@@ -223,17 +240,33 @@ function respuestaCredito (){
     respuestaCredito();   
 
     let solicitud = document.getElementById("submit1");
+    
+    /* $("#submit1").trigger("click", function() {
+        $("#resp2").slideDown();
+      }); */
+    
 solicitud.onclick = function valorCuota (){
+    let datosP = `Hola ${nombre} ${apellido}, DNI ${dni}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+    
 
+$(".formulario").append( `<div class="divRespuesta">
+<textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
 
+</div>`);
 
-
-    let responderk = document.querySelector(".formulario");
+    /* let responderk = document.querySelector(".formulario");
     let datosP = `Hola ${nombre} ${apellido}, DNI ${dni}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
     responderk.innerHTML += `    <div class="divRespuesta">
                                     <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
                                    
                                 </div>`;}
+                                 */
 
 }
-}
+}}
+
+/* $( "#formName" ).click(function() {
+  $( "#formLast" ).slideDown( "slow", function() {
+    // Animation complete
+  });
+}); */
