@@ -145,14 +145,23 @@ input, button, select{
 }
 
 .submit{
+
     display: flex;
     justify-content: space-around;
+    margin: 2rem 1rem 1rem 1rem;
     input[type="submit"], input[type="reset"], button{
-        width: 45%;
+        width: 100%;
         background-color: $primary;
         color: $back-letter;
         font-size: 2rem;
         font-weight: bold;
+    }
+    & .button {
+        margin: 0 1rem 0 0;
+    }
+    & .restart {
+        width: 100%;
+        margin-left: 1rem;
     }
     & .submi {
         background-color: red;

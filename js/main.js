@@ -226,47 +226,47 @@ function respuestaCredito (){
         if (cuotaPagar != false){
 
             let cuotaMostrar = (parseInt(cuotaPagar));
-            responderC.innerHTML = `<input type="text" class="elemento" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
+            responderC.innerHTML = `<input type="text" class="elemento in1" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
         }
-        else {$(".elemento1").append(`<input type="text" class="elemento" id="resp" value="TE ESPERAMOS LA PROXIMA." disabled>`);
-                $(".submit").html( `<button class="submi" id="submi" type="reset">Hasta pronto!</button>`);
+        else {$(".elemento1").append(`<input type="text" class="elemento in1" id="resp" value="TE ESPERAMOS LA PROXIMA." disabled>`);
+                $(".submit").html( `<button class="submi in1" id="submi" type="reset">Hasta pronto!</button>`);
             }
 }
 
 
 
 
-
     respuestaCredito();   
+
+    let datosP = `Hola ${nombre} ${apellido}, DNI ${dni}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+  
+    $(".formulario").append( `<div class="divRespuesta">
+    <textarea class="elemento respCred in1" style="display: none"  name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
+    
+    </div>`);
+
 
     let solicitud = document.getElementById("submit1");
     
-    /* $("#submit1").trigger("click", function() {
-        $("#resp2").slideDown();
-      }); */
-    
-solicitud.onclick = function valorCuota (){
-    let datosP = `Hola ${nombre} ${apellido}, DNI ${dni}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
+
+    solicitud.onclick = function valorCuota (){
+        $("#resp2").slideDown("fast");
     
 
-$(".formulario").append( `<div class="divRespuesta">
-<textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
+ 
+}
+}
 
-</div>`);
+$("#borrar").click(() => {
+    $(".in1").remove();
+    $("#formReq").slideUp("1000")
+                 .delay("fast")
+                 .slideDown("1000");
 
-    /* let responderk = document.querySelector(".formulario");
-    let datosP = `Hola ${nombre} ${apellido}, DNI ${dni}, te llamaremos en breve para ofrecerte tu credito de $${monto} al ${telefono}. Gracias!`;
-    responderk.innerHTML += `    <div class="divRespuesta">
-                                    <textarea class="elemento respCred" name="Text" id="resp2" cols="30" rows="4" disabled>${datosP}</textarea>
-                                   
-                                </div>`;}
-                                 */
+});
 
 }
-}}
 
-/* $( "#formName" ).click(function() {
-  $( "#formLast" ).slideDown( "slow", function() {
-    // Animation complete
-  });
-}); */
+
+
+   
