@@ -23,7 +23,7 @@ JQuery.d.ts(9539, 8): La declaración se ha marcado aquí como en desuso. */
 
 let selectTipoCredito = document.getElementById('tipocred');
 let selectCantCuotas = document.getElementById('cuotificador');
-const remover120 = document.getElementById("120c");
+/* const remover120 = document.getElementById("120c");
 const remover240 = document.getElementById("240c");
 const remover60 = document.getElementById("60c");
 const remover48 = document.getElementById("48c");
@@ -31,36 +31,42 @@ const remover6 = document.getElementById("6c");
 const remover12 = document.getElementById("12c");
 const remover18 = document.getElementById("18c");
 const remover24 = document.getElementById("24c");
-const remover36 = document.getElementById("36c");
+const remover36 = document.getElementById("36c"); */
 let responderC = document.querySelector(".elemento1");
 
 selectTipoCredito.addEventListener('change', () => {
     switch (selectTipoCredito.value) {
         case "1":
-            selectCantCuotas.removeChild(remover48);
-            selectCantCuotas.removeChild(remover60);
-            selectCantCuotas.removeChild(remover120);
-            selectCantCuotas.removeChild(remover240);
+            selectCantCuotas.innerHTML = `
+            <option value="6" id="6c">6</option>
+            <option value="12" id="12c">12</option>
+            <option value="18" id="18c">18</option>
+            <option value="24" id="24c">24</option>           
+            <option value="36" id="36c">36</option>`;
             break;
         case "2":
-            selectCantCuotas.removeChild(remover48);
-            selectCantCuotas.removeChild(remover60);
-            selectCantCuotas.removeChild(remover120);
-            selectCantCuotas.removeChild(remover240);
+            selectCantCuotas.innerHTML = `
+            <option value="6" id="6c">6</option>
+            <option value="12" id="12c">12</option>
+            <option value="18" id="18c">18</option>
+            <option value="24" id="24c">24</option>           
+            <option value="36" id="36c">36</option>`;
             break;
         case "3":
-            selectCantCuotas.removeChild(remover6);
-            selectCantCuotas.removeChild(remover12);
-            selectCantCuotas.removeChild(remover18);
-            selectCantCuotas.removeChild(remover24);
-            selectCantCuotas.removeChild(remover36);
-            selectCantCuotas.removeChild(remover60);
-            selectCantCuotas.removeChild(remover48);
+            selectCantCuotas.innerHTML = `
+            <option value="120" id="120c">120</option>       
+            <option value="240" id="240c">240</option>`;
 
             break;
         case "4":
-            selectCantCuotas.removeChild(remover120);
-            selectCantCuotas.removeChild(remover240);
+            selectCantCuotas.innerHTML = `
+            <option value="6" id="6c">6</option>
+            <option value="12" id="12c">12</option>
+            <option value="18" id="18c">18</option>
+            <option value="24" id="24c">24</option>           
+            <option value="36" id="36c">36</option>
+            <option value="48" id="48c">48</option>
+            <option value="60" id="60c">60</option>`;
             break;
         default:
             selectCantCuotas.innerHTML += '';
