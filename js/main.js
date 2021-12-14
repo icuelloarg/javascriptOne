@@ -1,37 +1,18 @@
 
+// jQuery animaciones concatenadas
 
-/* Intenté usar varios eventos, pero por ejemplo con el evento ready, click o change, me arroja 
-un mensaje de error, que la sintaxis está en desuso, y me envía a donde supuestamente
-está la nueva regla, pero el "reemplazo" tampoco me funciona. 
-Naturalmnte para que no se rompa el código volví atras con los cambios. Dejo un par de ejemplos 
-De las cosas que no funcionan.
-Si funcionó bien el agregado de HTML que hice al final, con los nuevos mensajes de salida que antes
-eran alert.*/
-
-/* SNo funciona bien jQuery, en determinados eventos me arroja el mensaje de abajo */
-
-/* "(handler: ($: JQueryStatic) => void): JQuery<Document>" está en desuso.ts(6385)
-JQuery.d.ts(9539, 8): La declaración se ha marcado aquí como en desuso. */
+/* Arreglé el asunto de la cantidad de cuotas.
+Utilizando jQuery se animó con slide la aparición del mensaje de salida, y al borrar el formulario, 
+se desliza hacia arriba y hacia abajo, dejando todos los campos en blanco, listos para otra simulación.*/
 
 
-/* $(document).ready(function(){
+$(function() {
     console.log(`Site listo`);
-})
-
- */
+});
 
 
 let selectTipoCredito = document.getElementById('tipocred');
 let selectCantCuotas = document.getElementById('cuotificador');
-/* const remover120 = document.getElementById("120c");
-const remover240 = document.getElementById("240c");
-const remover60 = document.getElementById("60c");
-const remover48 = document.getElementById("48c");
-const remover6 = document.getElementById("6c");
-const remover12 = document.getElementById("12c");
-const remover18 = document.getElementById("18c");
-const remover24 = document.getElementById("24c");
-const remover36 = document.getElementById("36c"); */
 let responderC = document.querySelector(".elemento1");
 
 selectTipoCredito.addEventListener('change', () => {
@@ -140,11 +121,7 @@ let cuotas = Number(document.getElementById("cuotificador").value);
 let simulador = document.getElementById("submit1");     
 simulador.onclick = function init(){
     simulador.innerHTML = `Solicitar`;
-    console.log(nombre);
-    console.log(cuotas);
-    console.log(monto);
-    console.log(ingresos);
-    console.log(objeto);
+
 
 function margen () {
  
