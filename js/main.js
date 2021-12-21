@@ -1,16 +1,15 @@
 
-// jQuery animaciones concatenadas
+// Ajax
 
-/* Arreglé el asunto de la cantidad de cuotas.
-Utilizando jQuery se animó con slide la aparición del mensaje de salida, y al borrar el formulario, 
-se desliza hacia arriba y hacia abajo, dejando todos los campos en blanco, listos para otra simulación.*/
+/* utilizando ajax y el api del ejemplo de la profe envio el array de solicitante.
+Se dispara con el evento click en evaluar.*/
 
 
 $(function() {
     console.log(`Site listo`);
 });
 
-
+const urlApi = 'https://jsonplaceholder.typicode.com/posts';
 let selectTipoCredito = document.getElementById('tipocred');
 let selectCantCuotas = document.getElementById('cuotificador');
 let responderC = document.querySelector(".elemento1");
@@ -86,7 +85,7 @@ const personasD = [];
 
 
 let localizador = document.getElementById("occupancy");
-localizador.onblur = function localizador1(){
+localizador.onchange = function localizador1(){
     let nombre1 = document.getElementById("formName").value;
     let apellido1 = document.getElementById("formLast").value;
     let dni1 = document.getElementById("dni").value;
@@ -116,10 +115,21 @@ let gastos = Number(document.getElementById("outcome").value);
 let monto = Number(document.getElementById("monto").value);
 let objeto = Number(document.getElementById("tipocred").value);
 let cuotas = Number(document.getElementById("cuotificador").value);
+const info = personasD[0];
 
 
 let simulador = document.getElementById("submit1");     
 simulador.onclick = function init(){
+    /* Se envia con ajax el array de solicitante */
+    $.ajax({
+            method: "POST",
+            url: urlApi,
+            data: info,
+            success: function () {
+                console.log("exito")
+                
+            }
+        });    
     simulador.innerHTML = `Solicitar`;
 
 
