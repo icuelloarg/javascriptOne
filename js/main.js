@@ -10,46 +10,47 @@ $(function() {
 });
 
 const urlApi = 'https://jsonplaceholder.typicode.com/posts';
-let selectTipoCredito = document.getElementById('tipocred');
-let selectCantCuotas = document.getElementById('cuotificador');
-let responderC = document.querySelector(".elemento1");
+let selectTipoCredito = $("#tipocred").text();
+console.log(selectTipoCredito);
+/* let selectCantCuotas = $("#cuotificador");
+let responderC = $(".elemento1"); */
 
-selectTipoCredito.addEventListener('change', () => {
-    switch (selectTipoCredito.value) {
+$("#tipocred").change(function() {
+    switch ($("#tipocred").val()) {
         case "1":
-            selectCantCuotas.innerHTML = `
+            $("#cuotificador").html(`
             <option value="6" id="6c">6</option>
             <option value="12" id="12c">12</option>
             <option value="18" id="18c">18</option>
             <option value="24" id="24c">24</option>           
-            <option value="36" id="36c">36</option>`;
+            <option value="36" id="36c">36</option>`);
             break;
         case "2":
-            selectCantCuotas.innerHTML = `
+            $("#cuotificador").html(`
             <option value="6" id="6c">6</option>
             <option value="12" id="12c">12</option>
             <option value="18" id="18c">18</option>
             <option value="24" id="24c">24</option>           
-            <option value="36" id="36c">36</option>`;
+            <option value="36" id="36c">36</option>`);
             break;
         case "3":
-            selectCantCuotas.innerHTML = `
+            $("#cuotificador").html(`
             <option value="120" id="120c">120</option>       
-            <option value="240" id="240c">240</option>`;
+            <option value="240" id="240c">240</option>`);
 
             break;
         case "4":
-            selectCantCuotas.innerHTML = `
+            $("#cuotificador").html(`
             <option value="6" id="6c">6</option>
             <option value="12" id="12c">12</option>
             <option value="18" id="18c">18</option>
             <option value="24" id="24c">24</option>           
             <option value="36" id="36c">36</option>
             <option value="48" id="48c">48</option>
-            <option value="60" id="60c">60</option>`;
+            <option value="60" id="60c">60</option>`);
             break;
         default:
-            selectCantCuotas.innerHTML += '';
+            $("#cuotificador").html('');
     }
 
 });
@@ -219,7 +220,7 @@ function respuestaCredito (){
         if (cuotaPagar != false){
 
             let cuotaMostrar = (parseInt(cuotaPagar));
-            responderC.innerHTML = `<input type="text" class="elemento in1" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`;
+            $(".elemento1").html(`<input type="text" class="elemento in1" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`);
         }
         else {$(".elemento1").append(`<input type="text" class="elemento in1" id="resp" value="TE ESPERAMOS LA PROXIMA." disabled>`);
                 $(".submit").html( `<button class="submi in1" id="submi" type="reset">Hasta pronto!</button>`);
