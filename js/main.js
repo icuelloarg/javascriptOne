@@ -85,18 +85,19 @@ class Solicitante {
 const personasD = [];
 
 
-let localizador = document.getElementById("occupancy");
-localizador.onchange = function localizador1(){
-    let nombre1 = document.getElementById("formName").value;
-    let apellido1 = document.getElementById("formLast").value;
-    let dni1 = document.getElementById("dni").value;
-    let correo1 = document.getElementById("mail").value;
-    let telefono1 = document.getElementById("phone").value;
-    let objeto1 = Number(document.getElementById("tipocred").value);
-    let monto1 = Number(document.getElementById("monto").value);
-    let cuotas1 = Number(document.getElementById("cuotificador").value);
-    let ingresos1 = Number(document.getElementById("income").value);
-    let gastos1 = Number(document.getElementById("outcome").value);
+/* let localizador = document.getElementById("occupancy");
+localizador.onchange = function localizador1() */
+$("#occupancy").change(function(){
+    let nombre1 = $("#formName").val();
+    let apellido1 = $("#formLast").val();
+    let dni1 = $("#dni").val();
+    let correo1 = $("#mail").val();
+    let telefono1 = $("#phone").val();
+    let objeto1 = Number($("#tipocred").val());
+    let monto1 = Number($("#monto").val());
+    let cuotas1 = Number($("#cuotificador").val());
+    let ingresos1 = Number($("#income").val());
+    let gastos1 = Number($("#outcome").val());
 
 
 
@@ -106,21 +107,22 @@ localizador.onchange = function localizador1(){
     localStorage.setItem(`individuo`, savePersona);
 
 
-let nombre = document.getElementById("formName").value;
-let apellido = document.getElementById("formLast").value;
-let dni = document.getElementById("dni").value;
-let correo = document.getElementById("mail").value;
-let telefono = document.getElementById("phone").value;
-let ingresos = Number(document.getElementById("income").value);
-let gastos = Number(document.getElementById("outcome").value);
-let monto = Number(document.getElementById("monto").value);
-let objeto = Number(document.getElementById("tipocred").value);
-let cuotas = Number(document.getElementById("cuotificador").value);
+let nombre = $("#formName").val();
+let apellido = $("#formLast").val();
+let dni = $("#dni").val();
+let correo = $("#mail").val();
+let telefono = $("#phone").val();
+let ingresos = Number($("#income").val());
+let gastos = Number($("#outcome").val());
+let monto = Number($("#monto").val());
+let objeto = Number($("#tipocred").val());
+let cuotas = Number($("#cuotificador").val());
 const info = personasD[0];
 
 
-let simulador = document.getElementById("submit1");     
-simulador.onclick = function init(){
+/* let simulador = document.getElementById("submit1");     
+simulador.onclick = function init() */
+$("#submit1").click(function init() {
     /* Se envia con ajax el array de solicitante */
     $.ajax({
             method: "POST",
@@ -131,7 +133,7 @@ simulador.onclick = function init(){
                 
             }
         });    
-    simulador.innerHTML = `Solicitar`;
+        $("#submit1").html(`Solicitar`);
 
 
 function margen () {
@@ -249,7 +251,7 @@ function respuestaCredito (){
 
  
 }
-}
+});
 
 $("#borrar").click(() => {
     $(".in1").remove();
@@ -259,7 +261,7 @@ $("#borrar").click(() => {
 
 });
 
-}
+});
 
 
 
