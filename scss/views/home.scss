@@ -136,6 +136,13 @@ aside{
         padding: 1rem;
     }
 
+    .valid{
+        border: solid 2px green;
+    }
+    .invalid{
+        border: solid 2px red;
+    }
+
 }
 input, button, select{
     height: 4.5rem;

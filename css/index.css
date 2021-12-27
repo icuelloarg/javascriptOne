@@ -157,6 +157,10 @@ aside {
     margin: 1rem;
     font-size: 2rem;
     padding: 1rem; }
+  aside .valid {
+    border: solid 2px green; }
+  aside .invalid {
+    border: solid 2px red; }
 
 input, button, select {
   height: 4.5rem;
