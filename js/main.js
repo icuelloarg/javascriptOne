@@ -10,10 +10,6 @@ $(function() {
 });
 
 const urlApi = 'https://jsonplaceholder.typicode.com/posts';
-let selectTipoCredito = $("#tipocred").text();
-console.log(selectTipoCredito);
-/* let selectCantCuotas = $("#cuotificador");
-let responderC = $(".elemento1"); */
 
 $("#tipocred").change(function() {
     switch ($("#tipocred").val()) {
@@ -71,22 +67,11 @@ class Solicitante {
         this.outgoing = outgoing;
 
     }
-    accesoSolicitante() {
-        if (this.nombre != false && this.apellido != false){
-         
-        }
-        else {
-            alert(`Alguno de los datos son incorrectos`);
-        }
-    }
-
 }
 
 const personasD = [];
 
 
-/* let localizador = document.getElementById("occupancy");
-localizador.onchange = function localizador1() */
 $("#occupancy").change(function(){
     let nombre1 = $("#formName").val();
     let apellido1 = $("#formLast").val();
@@ -120,10 +105,9 @@ let cuotas = Number($("#cuotificador").val());
 const info = personasD[0];
 
 
-/* let simulador = document.getElementById("submit1");     
-simulador.onclick = function init() */
+
 $("#submit1").click(function init() {
-    /* Se envia con ajax el array de solicitante */
+ 
     $.ajax({
             method: "POST",
             url: urlApi,
@@ -191,7 +175,6 @@ function calculoCredito () {
     
 function respuestaCredito (){
     let cuotaPagar = 0;
-    let mensaje = `Su cuota a pagar sería de `;
 
         switch (objeto){
             case 1:
@@ -225,7 +208,10 @@ function respuestaCredito (){
             $(".elemento1").html(`<input type="text" class="elemento in1" id="resp" value="Cuota a pagar $${cuotaMostrar}" disabled>`);
         }
         else {$(".elemento1").append(`<input type="text" class="elemento in1" id="resp" value="TE ESPERAMOS LA PROXIMA." disabled>`);
-                $(".submit").html( `<button class="submi in1" id="submi" type="reset">Hasta pronto!</button>`);
+                $(".submit").html( `<button class="submi in1" id="reload" type="reset">Hasta pronto!</button>`);
+                $("#reload").click(function(){
+                    location.reload();
+                });
             }
 }
 
@@ -241,25 +227,26 @@ function respuestaCredito (){
     
     </div>`);
 
-
-    let solicitud = document.getElementById("submit1");
-    
-
-    solicitud.onclick = function valorCuota (){
-        $("#resp2").slideDown("fast");
-    
+    $("#submit1").click(
+        function valorCuota (){
+            $("#resp2").slideDown("2000");
+        }   
+    )
 
  
-}
+});
+
+
+
 });
 
 $("#borrar").click(() => {
+    $("#submit1").html(`Evaluar`);
     $(".in1").remove();
     $("#formReq").slideUp("1000")
                  .delay("fast")
                  .slideDown("1000");
 
-});
 
 });
 
