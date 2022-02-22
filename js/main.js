@@ -182,6 +182,7 @@ credito.push(new Creditos(1,`personal`, 0.021, 37));
 credito.push(new Creditos(2,`refacciones`, 0.02, 37));
 credito.push(new Creditos(3,`hipotecario`, 0.017, 241));
 credito.push(new Creditos(4,`prendario`, 0.0192, 61));
+console.log(credito);
 
 const credJson = JSON.stringify(credito);
 localStorage.setItem(`dataCréditos`, credJson);
